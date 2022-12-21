@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="view.road.model.dao.mapper.UserMapper">
+
+	<!--  아이디 중복 체크 로 해당 아이디값의 정보를 불러오는  -->
+	 <select id="userGet" resultType="int">
+	  	SELECT COUNT(uid) FROM tbl_user WHERE userId=#{userId}
+	 </select>
+	
+	
+	 <select id="findByUserId" resultType="view.road.model.vo.UserVO">
+	  	SELECT * FROM tbl_user WHERE userId=#{userId}
+	 </select>
+	
+	 
+	 <!-- 유저명 중복 체크 로 해당 유저명을 정보를 불러오는  -->
+	 <select id="userGetUsername" resultType="int">
+	  	SELECT count(uid) FROM tbl_user WHERE username=#{username}
+	 </select>
+	
+	<!--  유저가입생성  -->
+	<insert id="userCreate">	
+		INSERT into tbl_user  (userId, username, password, ip , userColor) 
+			VALUES ( #{userId}, #{username} , #{password},#{ip} , #{userColor})	
+	</insert>
+	
+	
+	<!-- 유저 로그인 처리에 사용되는 -->
+	<select id="userLoginIdPw" resultType="view.road.model.vo.UserVO">	
+	 SELECT * FROM tbl_user WHERE userId=#{userId} AND password=#{password}
+	</select>
+	
+	
+	
+	
+	<!-- ////////////////////////////////// 관리자  -->
+
+	
+		<!-- 회원 가입 -->
+	<insert id="memberJoin">		
+		INSERT INTO tbl_user
+			(userId, username, email, phone,  gender, `level`,`birth`, `zoneCode`, `address`,  `role` ,password, ip,userColor)
+		VALUES(#{userId},#{username}, #{email}, #{phone},  #{gender}, #{level},#{birth}, #{zoneCode}, #{address}, #{role},#{password}, #{ip},#{userColor})
+	</insert>
+
+	<!-- 아이디 중복 검사 -->
+	<select id="idCheck" resultType="int">
+		SELECT count(uid) FROM tbl_user WHERE userId = #{userId}
+	</select>
+	
+	<!-- 이메일 중복 검사 -->
+	<select id="emailDbCheck" resultType="int">
+		SELECT COUNT(uid) FROM tbl_user WHERE email = #{email}
+	</select>
+	
+	
+	<!-- 전화 번호 중복 검사 -->	
+	<select id="phoneDbCheck" resultType="int">
+		SELECT COUNT(uid) FROM tbl_user WHERE phone = #{phone}
+	</select>
+
+	<!-- 닉네임 중복 검사 -->	
+	<select id="usernameDbCheck" resultType="int">
+		SELECT COUNT(uid) FROM tbl_user WHERE username = #{username}
+	</select>
+
+
+	<!-- 아이디와 닉네임으로 검ㅅ -->	
+	<select id="idPhoneCheck" resultType="int">	
+	SELECT COUNT(uid) FROM tbl_user WHERE userId = #{userId} AND  phone = #{phone}
+	</select>
+
+
+	 <!-- 아이디와 이메일로 체크 -->
+	 <select id="findEmailPassword" resultType="int">
+		SELECT COUNT(uid) FROM tbl_user WHERE userId = #{userId} AND  email = #{email}
+	</select>
+	 
+
+
+	
+	<!-- 로그인 구현 -->
+	<select id="memberLogin" resultType="view.road.model.vo.UserVO">
+		<!-- 인코딩 된 비밀번호를 확인하기 위한 쿼리 -->
+		SELECT * FROM tbl_user WHERE email = #{email}
+
+	</select>
+	
+
+
+	<sql id="search">
+	    <if test="searchType !=null">
+	            <if test="searchType == 'phone'.toString()">
+	                AND phone like CONCAT('%', #{keyword}, '%')
+	            </if>
+	            
+	           <if test="searchType == 'userId'.toString()">
+	                AND userId like CONCAT('%', #{keyword}, '%')
+	            </if>
+	     
+	            <if test="searchType == 'username'.toString()">
+	                AND username like CONCAT('%', #{keyword}, '%')
+	            </if>
+	     
+	            <if test="searchType == 'email'.toString()">
+	                AND email like CONCAT('%', #{keyword}, '%')
+	            </if>
+	           	
+	           
+	            <if test="searchType == 'zoneCode'.toString()">
+	                AND zoneCode like CONCAT('%', #{keyword}, '%')
+	            </if>
+	      
+	            <if test="searchType == 'address'.toString()">
+	                AND address like CONCAT('%', #{keyword}, '%')
+	            </if>	             
+	             
+	            <if test="searchType == 'all'.toString()">
+	                AND ( 
+	                    userId like CONCAT('%', #{keyword}, '%')
+	                    OR
+	                     phone like CONCAT('%', #{keyword}, '%')
+	                    OR
+	                     username like CONCAT('%', #{keyword}, '%')
+	                    OR
+	                     email like CONCAT('%', #{keyword}, '%')
+	                )
+	            </if>	             
+	    </if>
+	    
+	    
+		 <if test="parmaRole !=null and parmaRole == 'ROLE_MANAGER'.toString() ">
+	           	AND role = 'ROLE_MANAGER'
+	     </if>
+	</sql>
+ 
+ 	    <select id="getTotalCount" resultType="int">        
+	        <![CDATA[
+	            SELECT count(uid) as cnt FROM `tbl_user` WHERE uid >0 
+	        ]]>
+	         
+	         <include refid="search" ></include>
+	    </select>
+	    
+		   <!-- 회원 목록 출력 페이징 처리 및 검색처리 -->
+	    <select id="memberList" resultType="view.road.model.vo.UserVO">   
+			   <![CDATA[   
+				 
+				SELECT A.*
+				  
+				 FROM  (
+				 
+				SELECT  @rownum:=@rownum+1 as num,  tb.* FROM `tbl_user` tb
+				         
+				        , (SELECT @rownum:=0) TMP
+				         
+				         WHERE uid >0 
+				   ]]> 
+
+	          <include refid="search" ></include>
+		
+	        <![CDATA[    
+		      ) A 
+		            ORDER BY uid DESC             
+		           
+		            LIMIT #{pageStart}, #{perPageNum}
+		    ]]>
+		</select>
+
+
+		<select id="memberInfo" resultType="view.road.model.vo.UserVO">
+			SELECT * FROM `tbl_user`  WHERE uid =#{uid} 	
+		</select>
+
+		
+		<delete id="memberDelete">
+			DELETE FROM `tbl_user` WHERE uid =#{uid}
+		</delete>
+
+
+
+		<update id="memberUpdate">
+		UPDATE tbl_user
+			
+			SET 		
+			 
+			 <if test="username!=null and  !username.equals('') ">
+			  	 username=#{username},	
+			 </if>
+			 			
+			 <if test="phone!=null and  !phone.equals('') ">
+			   phone=#{phone}, 			
+			 </if>
+			 			 
+	         <if test="gender!=null and  !gender.equals('') ">
+			   gender=#{gender}, 			
+			 </if>
+						 
+			 <if test="level!=null and  !level.equals('') ">
+			    `level`=#{level},
+			 </if>	
+			
+			 <if test="role!=null and  !role.equals('') ">
+			   role=#{role},
+			 </if>
+			
+			 
+			 <if test="password!=null and  !password.equals('') ">
+			  password=#{password},
+			 </if>
+			
+			 <if test="birth!=null and  !birth.equals('') ">
+			  birth=#{birth},
+			 </if>
+		
+			 <if test="zoneCode!=null and  !zoneCode.equals('') ">
+			  zoneCode=#{zoneCode},
+			 </if>
+			 		
+			 <if test="address!=null and  !address.equals('') ">
+			  address=#{address},
+			 </if>			 		
+	
+			 
+			 ip=#{ip},
+			  
+			 modifiedDate=current_timestamp()
+		
+	    	WHERE uid=#{uid}					
+		</update>
+	
+	
+		<select id="findByEmail" resultType="view.road.model.vo.UserVO">
+			SELECT * FROM tbl_user WHERE email=#{email}	
+		</select>
+	
+	
+		<update id="guestUpdateRole">
+		  UPDATE tbl_user SET  role='ROLE_USER' WHERE email=#{email}	
+		</update>
+		
+		
+		<select id="getManagerList"  resultType="view.road.model.vo.UserVO">
+				SELECT uid, username FROM tbl_user  WHERE role ='ROLE_MANAGER' ORDER BY uid DESC
+		</select>
+		
+		
+		<!-- 비밀번호 업데이트 -->
+		<update id="updatePassword">		
+		  UPDATE tbl_user SET  password=#{password}  WHERE uid=#{uid}	
+		</update>
+		
+</mapper>
+
+

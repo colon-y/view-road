@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="view.road.model.dao.mapper.NoteMapper">
+
+
+	<insert id="insertNote">		
+	  INSERT INTO tbl_note (receiveId, sendId, title, content)	VALUES(#{receiveId}, #{sendId}, #{title} , #{content})	  
+	</insert>
+
+
+
+	<!-- 받은쪽지 - 검색조건sql 	보낸사람 :sendName -->
+	<sql id="receiveSearch">
+		<if test="searchType !=null ">
+			<if test="searchType == 'sendName'.toString()">
+				AND sendName like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType == 'title'.toString()">
+				AND title like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			
+			<if test="searchType == 'all'.toString()">
+				AND (				
+				 	sendName like CONCAT('%', #{keyword}, '%')						 	
+				 		OR
+				    title like CONCAT('%', #{keyword}, '%')
+				 )
+			</if>			
+		</if>	
+	</sql>
+
+
+
+	<select id="noteReceiveTotalCount" resultType="int">			
+		SELECT count(noteId) AS cnt  		
+		FROM 
+  		    (
+				SELECT	 tn.*   , tu.username AS receiveName, 	
+					(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+				FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+				ON tn.receiveId=tu.uid 				
+			) A 			
+		WHERE A.receiveid=#{uid}  AND remove=0					
+	    <include refid="receiveSearch" />   		 
+	</select>
+
+
+	<!-- 받은쪽지 리스트 -->
+	<select id="listNoteReceive" resultType="view.road.model.vo.NoteVO">
+	SELECT * FROM (
+		SELECT  @rownum := @rownum + 1 as num,  
+				  		
+  		A.* FROM 
+  		    (
+				SELECT	 tn.*   , tu.username AS receiveName, 	
+				(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+				(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+				FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+				ON tn.receiveId=tu.uid 				
+		) A ,	(select @rownum:=0 ) AS r
+					
+		WHERE A.receiveId=#{uid} AND 	 remove=0				    
+	    <include refid="receiveSearch" />	    
+	   ORDER BY A.noteid ASC
+	) SUB ORDER BY num DESC LIMIT #{pageStart} , #{perPageNum}
+	</select>
+
+
+
+
+
+
+	<!--2. 유저별 목록 - 검색조건sql 	보낸사람 :sendName -->
+	<sql id="groupSearch">
+		<if test="searchType !=null ">
+			<if test="searchType == 'sendName'.toString()">
+				AND sendName like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType == 'title'.toString()">
+				AND title like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			
+			<if test="searchType == 'all'.toString()">
+				AND (				
+				 	sendName like CONCAT('%', #{keyword}, '%')						 	
+				 		OR
+				    title like CONCAT('%', #{keyword}, '%')
+				 )
+			</if>			
+		</if>	
+	</sql>
+
+	<!-- 2. 유저별 목록 전체 카운터 -->
+	<select id="groupMessgeListTotalCount" resultType="int">					
+	select count(noteId) from (		
+	SELECT *		
+			
+			FROM (
+					SELECT  @rownum := @rownum + 1 as num,  
+							  		
+			  		A.* FROM 
+			  		    (
+							SELECT	 tn.*   , tu.username AS receiveName, 
+								(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+								(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+							FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+							ON tn.receiveId=tu.uid 				
+					) A ,	(select @rownum:=0 ) AS r
+								
+					WHERE A.receiveId=#{uid}   
+				     
+				   <include refid="groupSearch" />	 
+			) SUB 
+			
+			GROUP  BY sendid
+			
+	) SUB   		 
+	</select>
+
+	<!--2. 유저별 목록 -->
+	<select id="groupMessgeList" resultType="view.road.model.vo.NoteVO">
+		SELECT *,
+		(select count(noteid)  from  tbl_note where receiveId=#{uid} and sendId =SUB.sendid and readCnt =0   ) as totCnt
+		
+		FROM (
+				SELECT  @rownum := @rownum + 1 as num,  
+						  		
+		  		A.* FROM 
+		  		    (
+						SELECT	 tn.*   , tu.username AS receiveName, 
+							(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+							(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+						FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+						ON tn.receiveId=tu.uid 				
+				) A ,	(select @rownum:=0 ) AS r
+							
+				WHERE A.receiveId=#{uid}  
+								
+				<include refid="groupSearch" />	 
+				   
+				ORDER BY A.noteid desc   
+			     
+		) SUB 
+		
+		GROUP  BY sendid
+		
+		ORDER BY sendDate DESC 
+	</select>
+
+
+	
+	<update id="updateReadCnt">
+	UPDATE tbl_note SET  readCnt=readCnt+1  , readDate=now() WHERE noteId=#{noteId} AND receiveId=#{receiveId}
+	</update>
+
+
+	<!-- 개인별 전체 읽기 -->
+	<update id="updateTotalReadCnt">
+	UPDATE tbl_note SET  readCnt=readCnt+1, readDate=now() WHERE sendId=#{sendId} AND receiveId=#{receiveId} AND  readCnt=0
+	</update>
+
+
+
+
+	<select id="readNote" resultType="view.road.model.vo.NoteVO">		
+		SELECT * , 
+			(select username  FROM  tbl_user  WHERE uid=sendid) AS sendName	,
+			(select username  FROM  tbl_user  WHERE uid=receiveId) AS receiveName	
+		FROM		
+			tbl_note WHERE noteId=#{noteId} AND receiveId=#{receiveId}				
+	</select>
+
+
+
+
+
+	<!-- 메시지 목록 불러오기 -->
+	<select id="messageList" resultType="view.road.model.vo.NoteVO">		
+		SELECT * FROM (	
+		
+			SELECT * FROM (	
+					
+				SELECT * , 				
+					(SELECT username  FROM  tbl_user  WHERE uid=sendid) AS sendName	,
+					(select userColor  FROM  tbl_user  WHERE uid=sendid) AS userColor 
+				FROM					
+				tbl_note WHERE sendid=#{otherId} AND receiveId=#{myId}
+				
+				UNION
+				
+				SELECT * , 				
+					(select username  FROM  tbl_user  WHERE uid=sendId) AS receiveName,
+					(select userColor  FROM  tbl_user  WHERE uid=sendId) AS userColor 
+				FROM		
+				tbl_note WHERE sendId=#{myId} AND receiveId=#{otherId}
+								
+			) RE  ORDER by sendDate desc  
+			
+			
+			limit 0 , 100
+				
+				
+	) fi  ORDER BY sendDate asc							
+	</select>
+
+
+
+	<update id="deleteNote">
+		UPDATE tbl_note SET remove=1  WHERE 
+				
+		noteId=#{noteId} 
+		
+		<if test="receiveName ==null">
+			AND receiveId=#{receiveId}
+		</if>		
+	</update>
+
+
+
+	<delete id="deleteRealNote"> 		
+		<if test="receiveName !=null and  receiveName.equals('admin') ">
+					DELETE FROM tbl_note  WHERE noteId=#{noteId}
+		</if>		
+	</delete>
+
+
+	<update id="deleteMyNote">
+		UPDATE tbl_note SET remove=1  WHERE noteId=#{noteId} AND sendId=#{sendId}
+	</update>
+
+
+	<delete id="deleteGroupNote">
+		DELETE FROM tbl_note  WHERE
+		( sendId=#{sendId} AND receiveId=#{receiveId} )
+					OR
+		( sendId=#{receiveId} AND receiveId=#{sendId} )
+	</delete>
+		
+	
+	
+
+
+
+	<select id="userGroupList"  resultType="view.road.model.vo.NoteVO">		
+	
+	SELECT *,
+	
+	(select count(noteid)  from  tbl_note where receiveId=#{receiveId}  and sendId =SUB.sendid and readCnt =0   ) as cnt
+	
+	FROM (
+			SELECT  @rownum := @rownum + 1 as num,  
+					  		
+	  		A.* FROM 
+	  		    (
+					SELECT	 tn.*   , tu.username AS receiveName, 	
+						(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+					FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+					ON tn.receiveId=tu.uid 				
+			) A ,	(select @rownum:=0 ) AS r
+						
+			WHERE A.receiveId=#{receiveId} 		 ORDER BY A.noteid desc   
+		     
+	) SUB 
+	
+	group  by sendid
+	
+	ORDER BY sendDate desc 
+		
+	
+	</select>
+
+
+
+
+	
+	<select id="noticeCount" resultType="int">
+				SELECT  
+			
+				count(noteid) as cnt			
+				
+			  		 FROM 
+			  		    (
+							SELECT	 tn.*   , tu.username AS receiveName, 
+								(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+								(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+							FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+							
+							ON tn.receiveId=tu.uid 	 and readCnt=0			
+					) A 
+								
+				WHERE A.receiveId=#{receiveId}  	
+	</select>
+
+
+
+	<select id="notificationMessage" resultType="view.road.model.vo.NoteVO">
+		SELECT *,
+		
+		(select count(noteid)  from  tbl_note where receiveId=#{receiveId} and sendId =SUB.sendid and readCnt =0   ) as totCnt
+		
+		FROM (
+				SELECT  @rownum := @rownum + 1 as num,  
+						  		
+		  		A.* FROM 
+		  		    (
+						SELECT	 
+							tn.noteid, tn.receiveId, tn.sendId, tn.title, tn.readCnt, tn.remove, tn.sendDate, tn.readDate,
+							tu.username AS receiveName, 
+							(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+								(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+						FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+						ON tn.receiveId=tu.uid 				
+				) A ,	(select @rownum:=0 ) AS r
+							
+				WHERE A.receiveId=#{receiveId} 
+								
+				
+				ORDER BY A.noteid desc   
+			     
+		) SUB 
+		
+		GROUP  BY sendid
+				
+		ORDER BY sendDate DESC 	limit 0, 50
+	
+	</select>
+
+
+
+
+
+
+
+	<!--1.관리자 : 받은쪽지 - 검색조건sql 	보낸사람 :sendName -->
+	<sql id="adminReceiveSearch">
+		<if test="searchType !=null ">
+			<if test="searchType == 'sendName'.toString()">
+				AND sendName like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType == 'receiveName'.toString()">
+				AND receiveName like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType == 'title'.toString()">
+				AND title like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			 <if test="searchType == 'hide'.toString()  and  ( keyword ==null or  keyword.equals('') )">
+				<![CDATA[
+					AND remove > 0
+				]]> 
+			</if>
+			
+			 <if test="searchType == 'hide'.toString()  and  ( keyword !=null and  !keyword.equals('') )">
+				<![CDATA[
+					AND remove > 0
+					
+			  		AND (				
+					 	sendName like CONCAT('%', #{keyword}, '%')						 	
+					 		OR
+					    title like CONCAT('%', #{keyword}, '%')
+					     	OR				    
+					    receiveName like CONCAT('%', #{keyword}, '%')					     
+					  )
+				]]> 
+			</if>			
+			
+			<if test="searchType == 'all'.toString()">
+				AND (				
+				 	sendName like CONCAT('%', #{keyword}, '%')						 	
+				 		OR
+				    title like CONCAT('%', #{keyword}, '%')
+				     	OR				    
+				    receiveName like CONCAT('%', #{keyword}, '%')					     
+				 )
+			</if>			
+		</if>	
+	</sql>
+
+
+	<!-- 1.관리자 : -->
+	<select id="noteReceiveAdminTotalCount" resultType="int">						
+		SELECT count(noteId) AS cnt  		
+		FROM 
+  		    (
+				SELECT	 tn.*   , tu.username AS receiveName, 	
+					(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+				FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+				ON tn.receiveId=tu.uid 				
+			) A 			
+		WHERE A.noteid >0   			
+	    <include refid="adminReceiveSearch" />   		 
+	</select>
+
+	<!--1.관리자 :  받은쪽지 리스트 -->
+	<select id="listNoteAdminReceive" resultType="view.road.model.vo.NoteVO">
+		SELECT * FROM (
+		SELECT  @rownum := @rownum + 1 as num,  
+				  		
+  		A.* FROM 
+  		    (
+				SELECT	 tn.*   , tu.username AS receiveName, 	
+				(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+				(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+				FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+				ON tn.receiveId=tu.uid 				
+		) A ,	(select @rownum:=0 ) AS r
+						
+	  	WHERE A.noteid >0    
+	  	
+	   <include refid="adminReceiveSearch" />	   
+	  	 
+	   ORDER BY A.noteid asc
+	   
+	) SUB ORDER BY num DESC   LIMIT #{pageStart} , #{perPageNum}
+		
+
+	</select>
+
+
+
+
+	<!--2. 관리자 유저별 목록 - 검색조건sql 	보낸사람 :sendName -->
+	<sql id="adminGroupSearch">
+		<if test="searchType !=null ">
+			<if test="searchType == 'sendName'.toString()">
+				AND sendName like CONCAT('%', #{keyword}, '%')
+			</if>
+		
+			<if test="searchType == 'receiveName'.toString()">
+				AND receiveName like CONCAT('%', #{keyword}, '%')
+			</if>
+				
+			<if test="searchType == 'title'.toString()">
+				AND title like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			
+			<if test="searchType == 'all'.toString()">
+				AND (				
+				 	sendName like CONCAT('%', #{keyword}, '%')						 	
+				 		OR
+				    title like CONCAT('%', #{keyword}, '%')
+				    	OR
+				   receiveName like CONCAT('%', #{keyword}, '%')			 					    
+				 )
+			</if>			
+		</if>	
+	</sql>
+
+	<!-- 2. 관리자 유저별 목록 전체 카운터 -->
+	<select id="adminGroupMessgeListTotalCount" resultType="int">					
+	select count(noteId) from (		
+	SELECT *		
+			
+			FROM (
+					SELECT  @rownum := @rownum + 1 as num,  
+							  		
+			  		A.* FROM 
+			  		    (
+							SELECT	 tn.*   , tu.username AS receiveName, 
+								(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+								(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+							FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+							ON tn.receiveId=tu.uid 				
+					) A ,	(select @rownum:=0 ) AS r
+								
+					WHERE A.receiveId > 0
+				     
+				   <include refid="adminGroupSearch" />	 
+			) SUB 
+			
+			GROUP  BY sendid
+			
+	) SUB   		 
+	</select>
+
+	<!--2. 관리자 유저별 목록 -->
+	<select id="adminGroupMessgeList" resultType="view.road.model.vo.NoteVO">
+		SELECT *,
+		(select count(noteid)  from  tbl_note where  sendId =SUB.sendid and readCnt =0   ) as totCnt
+		
+		FROM (
+				SELECT  @rownum := @rownum + 1 as num,  
+						  		
+		  		A.* FROM 
+		  		    (
+						SELECT	 tn.*   , tu.username AS receiveName, 
+							(select userColor  FROM  tbl_user  WHERE uid=tn.sendid) AS userColor,
+							(select username  FROM  tbl_user  WHERE uid=tn.sendid) AS sendName	
+						FROM  tbl_note tn 	INNER JOIN tbl_user tu 			
+						ON tn.receiveId=tu.uid 				
+				) A ,	(select @rownum:=0 ) AS r
+							
+				WHERE A.receiveId > 0
+								
+				<include refid="adminGroupSearch" />	 
+				   
+				ORDER BY A.noteid desc   
+			     
+		) SUB 
+		
+		GROUP  BY sendid
+		
+		ORDER BY sendDate DESC 
+	</select>
+
+
+
+
+</mapper>
+
+
+
+
+

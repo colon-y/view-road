@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="view.road.model.dao.mapper.LikeMapper">
+ 
+ 	<!-- 목록처리 -->
+ 	<select id="likeList" resultType="int">
+ 		SELECT count(bno)  FROM  tbl_like WHERE bno=#{bno} 
+ 	</select>
+	
+	<!-- 등록처리  -->
+	<insert id="insert">
+		INSERT INTO tbl_like  (bno, uid) VALUES ( #{bno}, #{uid} )
+	</insert>
+	
+	<!-- 삭제처리  -->
+	<delete id="delete">
+		DELETE FROM tbl_like WHERE bno=#{bno} AND uid=#{uid}
+	</delete>
+
+
+	<select id="exitLike" resultType="int">
+		SELECT count(bno)  FROM  tbl_like WHERE bno=#{bno} AND uid=#{uid}
+	</select>
+
+</mapper>
+
+
+
+
+

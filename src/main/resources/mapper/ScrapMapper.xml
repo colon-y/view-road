@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="view.road.model.dao.mapper.ScrapMapper">
+
+
+	<insert id="insertScrap">		
+	  INSERT INTO tbl_scrap (uid, bno) VALUES (#{uid}, #{bno}) ON DUPLICATE KEY UPDATE uid=#{uid}, bno=#{bno}
+	</insert>
+
+
+
+	<!-- 검색조건sql -->
+	<sql id="search">
+		<if test="keyword !=null">
+			<if test="!keyword.equals('')">
+			AND tb.title like CONCAT('%', #{keyword}, '%')
+			</if>								
+		</if>
+		
+		<if test="boardType !=null and  !boardType.equals('') and  !boardType.equals('all') ">		
+			AND tb.boardType =#{boardType}
+		</if>		
+	</sql>
+
+
+	<select id="scrapTotalCount" resultType="int">		
+	SELECT  		
+		COUNT(ts.scno) AS cnt 	
+	FROM  
+ 		tbl_scrap ts 
+  	INNER JOIN 
+   		tbl_board tb  ON ts.bno=tb.bno WHERE ts.uid=#{uid}
+   		<include refid="search"></include>   		 
+	</select>
+
+
+
+	<select id="listScrap" resultType="view.road.model.vo.ScrapVO">
+	SELECT * FROM 
+	    (
+				SELECT 				    
+				    @rownum := @rownum + 1 as num, ts.scno,  ts.createdDate,				 	
+					tb.uid, tb.bno, tb.boardType, tb.title, tb.place, tb.fileName				
+				FROM 				 
+				  (SELECT @rownum :=0) AS r ,   tbl_scrap ts 				 
+			    INNER JOIN 				
+				  tbl_board tb  ON ts.bno=tb.bno WHERE ts.uid=#{uid}	
+				  <include refid="search"></include>			
+				ORDER BY  scno ASC		  
+		) SUB
+	 ORDER BY sub.num DESC LIMIT #{pageStart} , #{perPageNum}
+	</select>
+
+
+	<delete id="deleteScrap">
+		DELETE FROM tbl_scrap WHERE uid=#{uid} AND scno=#{scno}
+	</delete>
+
+
+
+</mapper>
+
+
+
+
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="view.road.model.dao.mapper.StatisticsMapper">
+ 
+
+  
+  	<select id="listNewMemberRegistPerDay" resultType="view.road.model.vo.StatisticsVO">
+  	 <![CDATA[			
+		SELECT 
+				DATE_FORMAT(dt, '%d')  as createdDate
+		     , COUNT(n) cnt
+		
+		  FROM (
+		  		
+		  		SELECT DATE_FORMAT(createdDate, '%Y-%m-%d') AS dt
+		             , userId
+		             , CASE WHEN COUNT(*) = 1 THEN 1 END AS n
+		             , CASE WHEN COUNT(*) > 1 THEN 1 END AS r
+		          FROM tbl_user
+		         WHERE createdDate >= #{startDate}
+		           AND createdDate <  #{endDate}
+		         GROUP BY DATE_FORMAT(createdDate, '%Y-%m-%d')
+		             , userId
+		            
+		        ) A
+		 GROUP BY A.dt			
+    	]]>   		
+  	</select>
+
+  	
+  	 <select id="listVisitorStatistics" resultType="view.road.model.vo.VisitCountVO">
+  	 <![CDATA[		
+		SELECT 
+		    	DATE_FORMAT(dt, '%d')  as createdDate
+		     , COUNT(n) cnt	
+		      , COUNT(r) cnt_re
+		     , COUNT(distinct  visitIp) cntIp
+		     
+		  FROM (
+		  		
+		  		SELECT DATE_FORMAT(visitTime, '%Y-%m-%d') AS dt
+		             , visitId
+		             , visitIp
+		             , CASE WHEN COUNT(*) = 1 THEN 1 END AS n
+		             , CASE WHEN COUNT(*) > 1 THEN 1 END AS r
+		          FROM tbl_visitor
+		         WHERE visitTime >=  #{startDate}
+		           AND visitTime <   #{endDate}
+		         GROUP BY DATE_FORMAT(visitTime, '%Y-%m-%d')
+		             , visitId
+		             , visitIp
+		        ) A
+		 GROUP BY A.dt 
+    	]]>   		
+  	</select>
+  	
+  	
+  	
+  	
+  
+</mapper>
+
+
+
+
+

@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="view.road.model.dao.mapper.BoardMapper">
+
+<!-- 등록처리 -->
+	<insert id="register">
+	INSERT INTO tbl_board (title, place , content, uid, boardType, address, imgCnt, fileName, boardPassword,ip, latitude, longitude ) 
+	
+	VALUES (#{title}, #{place}, #{content},#{uid}, #{boardType}, #{address} ,  #{imgCnt}, #{fileName}, #{boardPassword},#{ip}, #{latitude},#{longitude})		  
+	</insert>
+	
+		
+	<!-- 상세정보 -->
+	<select id="getRead" resultType="view.road.model.vo.BoardVO">	 
+		SELECT a.*,		
+			 
+			  (SELECT COUNT(rno) FROM tbl_reply WHERE bno=#{bno}) AS replyCnt ,		  
+		      
+		      (SELECT COUNT(bno) FROM tbl_like WHERE bno=#{bno}) AS likeCnt	
+		 
+		 <if test="uid !=null and !uid.equals('')">
+			,  (SELECT COUNT(bno) FROM tbl_like WHERE bno=#{bno} AND uid=#{uid}) AS myLikeCnt
+						
+			, (SELECT COUNT(scno) FROM tbl_scrap WHERE bno=#{bno} AND uid=#{uid}) AS scrapCnt
+		</if>
+		      
+		      	
+		FROM(		  
+		    
+		     SELECT  tb.bno, tb.boardType, tb.title, tb.place, tb.content, tu.zoneCode, tb.address, 
+		     
+		     tb.latitude, tb.longitude,
+		     
+		     tu.username, tu.uid, tu.userId , tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+			
+			 FROM tbl_board tb INNER JOIN tbl_user tu 
+				
+			 ON tb.uid =tu.uid
+		      
+		     WHERE bno=#{bno}		 		 
+		
+		 ) AS a	 
+	</select>
+	
+	<!-- 검색조건sql -->
+	<sql id="search">
+		<if test="searchType !=null">
+			<if test="searchType == 't'.toString()">
+			AND tb.title like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType == 'c'.toString()">
+			AND tb.content like CONCAT('%', #{keyword}, '%')
+			</if>			
+
+			<if test="searchType == 'w'.toString()">
+			AND 
+			   ( 
+				   tu.userId like CONCAT('%', #{keyword}, '%') 
+					OR
+				   tu.username like CONCAT('%', #{keyword}, '%')  			
+				)
+			</if>			
+
+			<if test="searchType == 'tw'.toString()">
+			AND 
+				 (
+				 tb.title LIKE CONCAT('%', #{keyword}, '%')
+					OR			
+			 	 tu.userId like CONCAT('%', #{keyword}, '%') 
+					OR
+				 tu.username like CONCAT('%', #{keyword}, '%')  
+			   )
+			</if>							
+			
+			<if test="searchType == 'tcw'.toString()">
+			AND 
+				 (
+				 tb.title LIKE CONCAT('%', #{keyword}, '%')
+					OR
+			 	 tb.content LIKE CONCAT('%', #{keyword}, '%')
+			 	 	OR
+			 	 tu.userId like CONCAT('%', #{keyword}, '%') 
+					OR
+				 tu.username like CONCAT('%', #{keyword}, '%')  
+			   )
+			</if>			
+		</if>
+	</sql>
+	
+	
+	<!-- 목록처리 -->
+	<select id="getReadList" resultType="view.road.model.vo.BoardVO">
+		<![CDATA[
+		SELECT 
+		
+			 a.num,
+			 
+			 a.bno, a.title, a.boardType, a.place, a.username, a.uid, a.userId , a.zoneCode,  a.imgCnt, a.fileName,
+			 
+			 a.latitude, a.longitude,
+			 
+			 a.boardPassword, a.ip, a.createdDate, a.viewCnt ,
+			 
+			 (SELECT COUNT(rno) FROM tbl_reply WHERE bno=a.bno) AS replyCnt ,
+			     
+			 (SELECT COUNT(bno) FROM tbl_like WHERE bno=a.bno) AS likeCnt
+		 
+		 FROM   (
+			
+				SELECT 		
+						@ROWNUM :=@ROWNUM +1 as num, numA.*
+				FROM  (				
+						SELECT 
+																	
+							tb.bno, tb.title, tb.boardType,tb.place,  tu.username, tu.uid, tu.userId , 
+							
+							tb.latitude, tb.longitude,
+							
+							tu.zoneCode, tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+							
+							FROM  tbl_board tb INNER JOIN tbl_user tu 
+								
+							ON tb.uid =tu.uid  WHERE tb.bno > 0
+	 ]]>							
+							
+							<include refid="search"></include>
+
+			<![CDATA[			
+				
+							ORDER BY tb.bno desc
+							
+				) numA,  (select @ROWNUM :=0) n
+					
+		 ]]>					
+			<if test="boardType !=null and !boardType.equals('') ">
+					 WHERE boardType =#{boardType}
+			</if>
+		<![CDATA[			
+					  ORDER BY num DESC
+		  
+		    ) AS a   WHERE bno >0 
+		    
+		]]> 		
+		
+		
+		<![CDATA[	 
+		
+			LIMIT #{pageStart} , #{perPageNum}
+		]]> 
+	</select>
+	
+	<!-- 전체 게시판갯수 -->
+	<select id="boardTotalCount" resultType="int">
+		<![CDATA[	 
+		SELECT COUNT(bno) FROM 
+		
+		(			SELECT 
+					
+					@num:=@num+1 as num,
+					
+					tb.bno, tb.title, tb.content, tb.boardType, tu.username, tu.uid, tu.userId  
+					
+					FROM (select @num:=0) n, tbl_board tb INNER JOIN tbl_user tu 
+						
+					ON tb.uid =tu.uid
+		]]> 			
+			<if test="boardType !=null and !boardType.equals('') ">
+					 WHERE boardType =#{boardType}
+			</if>
+	
+			<include refid="search"></include>
+	
+	   <![CDATA[	 			
+		)			
+		
+		 AS a WHERE bno >0 
+		]]> 
+		
+		
+	</select>
+	
+	
+	<!-- 삭제처리 -->
+	<delete id="remove">
+		DELETE FROM tbl_board WHERE bno=#{bno}
+	</delete>
+	
+	<!-- 업데이트 처리 sql 문 -->
+	<update id="boardUpdate">	
+        UPDATE tbl_board
+        
+         SET         		
+        	 title = #{title} ,
+        	 
+	        <if test="place !=null and !place.equals('') ">
+	     		place =#{place},	
+	       </if>  	 
+        	         	 
+        	 content = #{content} , 
+        
+       <if test="address !=null and !address.equals('') ">
+     		address =#{address},	
+       </if> 
+        
+        	 
+       <if test="fileName !=null and !fileName.equals('') ">
+     		fileName =#{fileName},	
+       </if> 	 
+       
+       <if test="imgCnt !=null and !imgCnt.equals('') ">
+       			imgCnt=#{imgCnt},
+       </if>
+       
+       <if test="latitude !=null and !latitude.equals('') ">
+       			latitude=#{latitude},
+       </if>
+       <if test="longitude !=null and !longitude.equals('') ">
+       			longitude=#{longitude},
+       </if>       
+       
+        	 modifiedDate = now()  
+        	 
+        WHERE bno = #{bno}
+	</update>
+	
+		
+	
+	
+	
+	<!--  비밀번호 확인 처리 sql 문 -->
+	<select id="passwordConfirm" resultType="int">
+		SELECT COUNT(bno) FROM tbl_board WHERE bno=#{bno} AND boardPassword=#{boardPassword}
+	</select>
+
+	
+	<!-- 	조회수 증가 처리 sql 문 -->
+	<update id="viewCntAdd">
+		UPDATE tbl_board SET viewCnt=viewCnt+1 WHERE bno=#{bno}
+	</update>
+	
+	<!-- 	 목록 처리 sql 문 -->
+	<select id="getReadLikeList" resultType="view.road.model.vo.BoardVO">
+	<![CDATA[	
+		SELECT * FROM
+		
+		(
+		SELECT 
+				
+				 a.*  ,
+				  	 (SELECT COUNT(rno) FROM tbl_reply WHERE bno=a.bno) as replyCnt ,
+				     
+					 (SELECT count(bno) FROM tbl_like WHERE bno=a.bno) as likeCnt
+				 
+				 FROM   (
+			
+				SELECT 		
+						@ROWNUM :=@ROWNUM +1 as num, numA.*
+				FROM  (				
+						SELECT 
+																	
+							tb.bno, tb.title, tb.boardType, tu.username, tu.uid, tu.userId ,  tu.zoneCode, 
+							
+							tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+							
+							FROM  tbl_board tb INNER JOIN tbl_user tu 
+								
+							ON tb.uid =tu.uid ORDER BY tb.bno desc
+							
+				) numA,  (select @ROWNUM :=0) n
+
+		 ]]>					
+			<if test="boardType !=null and !boardType.equals('') ">
+					 WHERE boardType =#{boardType}
+			</if>
+		<![CDATA[														
+				  
+				    ) AS a 		        		        
+		   )     
+		     AS k   
+		          WHERE   likeCnt >1
+		        		        
+		        ORDER BY  likeCnt DESC LIMIT 0, 5
+		        
+		        ]]> 
+		</select>
+		
+		
+		
+		<!-- 조회수가 높은것 5 개 목록을 가져오는처리 -->
+		<select id="bestViewList" resultType="view.road.model.vo.BoardVO">
+		<![CDATA[			
+		SELECT * FROM		
+		(
+		  SELECT 				
+				 a.*  ,
+				  	 (SELECT COUNT(rno) FROM tbl_reply WHERE bno=a.bno) as replyCnt ,
+				     
+						 (SELECT count(bno) FROM tbl_like WHERE bno=a.bno) as likeCnt
+				 
+				 FROM   (
+					SELECT
+					 
+					@num:=@num+1 as num,
+					
+					tb.bno, tb.title, tb.boardType, tu.username, tu.uid, tu.userId ,  tu.zoneCode, tb.imgCnt,tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+					
+					FROM (select @num:=0) n, tbl_board tb INNER JOIN tbl_user tu 
+						
+					ON tb.uid =tu.uid 
+					
+		 ]]>					
+			<if test="boardType !=null and !boardType.equals('') ">
+					 WHERE boardType =#{boardType}
+			</if>
+		<![CDATA[
+							
+					
+					ORDER BY tb.createdDate DESC
+				  
+				    ) AS a 
+		        		        
+		   )     
+		     AS k   
+		          WHERE   viewCnt >1
+		        		        
+		 ORDER BY  viewCnt DESC , createdDate DESC LIMIT 0, 5		
+		  ]]> 
+		</select>
+		
+
+
+		<!--  댓글수가 높은것 5개 목록을 가져오는 처리 -->
+		<select id="bestCommentList" resultType="view.road.model.vo.BoardVO">
+		<![CDATA[	
+		
+		SELECT * FROM
+		
+		(
+		SELECT 
+				
+				 a.*  ,
+				  	 (SELECT COUNT(rno) FROM tbl_reply WHERE bno=a.bno) AS replyCnt ,
+				     
+						  (SELECT COUNT(bno) FROM tbl_like WHERE bno=a.bno) AS likeCnt
+				 
+				 FROM   (
+				 	SELECT
+				 	 
+					@num:=@num+1 as num,
+					
+					tb.bno, tb.title, tb.boardType, tu.username, tu.uid, tu.userId , tu.zoneCode, tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+					
+					FROM (select @num:=0) n, tbl_board tb INNER JOIN tbl_user tu 
+						
+					ON tb.uid =tu.uid  
+					
+				 ]]>					
+					<if test="boardType !=null and !boardType.equals('') ">
+							 WHERE boardType =#{boardType}
+					</if>
+				<![CDATA[
+									
+					
+					ORDER BY tb.createdDate DESC
+				  
+				    ) AS a 
+		        
+		        
+		   )     
+		     AS k   
+		          WHERE   replyCnt >1
+		        
+		        
+		        ORDER BY replyCnt DESC ,createdDate DESC  LIMIT 0, 5
+		  ]]> 
+		</select>
+	
+	
+	<update id="deleteImgFile">
+		 UPDATE tbl_board SET      
+	         	
+	         	imgCnt=0,   		
+	        	
+	        	fileName="" 
+	        	    	 
+	        WHERE bno = #{bno}	
+	</update>
+	
+	
+
+	<select id="getMainQnaList" resultType="view.road.model.vo.BoardVO">
+		SELECT
+	 	 
+		@num:=@num+1 as num,
+		
+		tb.bno, tb.title, tb.boardType, tu.username, tu.uid, tu.userId , tu.zoneCode, tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+		
+		FROM (select @num:=0) n, tbl_board tb INNER JOIN tbl_user tu 
+			
+		ON tb.uid =tu.uid where tb.boardType='qna'  ORDER BY bno DESC LIMIT 0, 5
+	</select>
+	
+	
+	<select id="getMainfreeList" resultType="view.road.model.vo.BoardVO">
+		SELECT
+	 	 
+		@num:=@num+1 as num,
+		
+		tb.bno, tb.title, tb.boardType, tu.username, tu.uid, tu.userId , tu.zoneCode, tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+		
+		FROM (select @num:=0) n, tbl_board tb INNER JOIN tbl_user tu 
+			
+		ON tb.uid =tu.uid where tb.boardType='free'  ORDER BY bno DESC LIMIT 0, 5
+	</select>
+	
+	
+	
+	
+	
+		
+		
+	<!-- 갤러리 전체 게시판갯수 -->
+	<select id="galleryMosaicListTotalCount" resultType="int">
+		<![CDATA[	 
+		SELECT COUNT(bno) FROM 
+		
+		(			SELECT 
+					
+					@num:=@num+1 as num,
+					
+					tb.bno, tb.title, tb.boardType, tu.username, tu.uid, tu.userId  
+					
+					FROM (select @num:=0) n, tbl_board tb INNER JOIN tbl_user tu 
+						
+					ON tb.uid =tu.uid
+		]]> 			
+			 WHERE boardType ='place_introduction' OR boardType='place_reviews'
+	
+			<include refid="search"></include>
+	
+	   <![CDATA[	 			
+		)			
+		
+		 AS a WHERE bno >0 
+		]]> 
+		
+		
+	</select>
+	
+		<!-- 갤러리 목록처리 -->
+	<select id="galleryMosaicList" resultType="view.road.model.vo.BoardVO">
+		<![CDATA[
+		SELECT 
+		
+			 a.num,
+			 
+			 a.bno, a.title, a.boardType, a.place,a.address,  a.latitude, a.longitude, a.username, a.uid, a.userId , a.zoneCode,
+			 
+			   a.imgCnt, a.fileName, a.boardPassword, a.ip, a.createdDate, a.viewCnt ,
+			 
+			 (SELECT COUNT(rno) FROM tbl_reply WHERE bno=a.bno) AS replyCnt ,
+			     
+			 (SELECT COUNT(bno) FROM tbl_like WHERE bno=a.bno) AS likeCnt
+		 
+		 FROM   (
+			
+				SELECT 		
+						@ROWNUM :=@ROWNUM +1 as num, numA.*
+				FROM  (				
+						SELECT 
+																	
+							tb.bno, tb.title, tb.boardType,tb.place, tb.address, tb.latitude, tb.longitude,  tu.username,
+							
+							 tu.uid, tu.userId ,  tu.zoneCode, tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+							
+							FROM  tbl_board tb INNER JOIN tbl_user tu 
+								
+							ON tb.uid =tu.uid  WHERE tb.bno > 0
+	 ]]>							
+							
+							<include refid="search"></include>
+
+			<![CDATA[			
+				
+							ORDER BY tb.bno desc
+							
+				) numA,  (select @ROWNUM :=0) n
+					
+		 ]]>					
+		
+			 WHERE boardType ='place_introduction' OR boardType='place_reviews'
+		<![CDATA[			
+					  ORDER BY num DESC
+		  
+		    ) AS a   WHERE bno >0 
+		    
+		]]> 		
+		
+		
+		<![CDATA[	 
+		
+			LIMIT #{pageStart} , #{perPageNum}
+		]]> 
+	</select>
+	
+	
+	
+			<!-- 맵 목록처리 -->
+	<select id="mapList" resultType="view.road.model.vo.BoardVO">
+		<![CDATA[
+		SELECT 
+		
+			 a.num,
+			 
+			 a.bno, a.title, a.boardType, a.place, a.username, a.uid, a.userId , a.zoneCode,
+			 
+			   a.imgCnt, a.fileName, a.boardPassword, a.ip, a.createdDate, a.viewCnt ,
+			 
+			 (SELECT COUNT(rno) FROM tbl_reply WHERE bno=a.bno) AS replyCnt ,
+			     
+			 (SELECT COUNT(bno) FROM tbl_like WHERE bno=a.bno) AS likeCnt
+		 
+		 FROM   (
+			
+				SELECT 		
+						@ROWNUM :=@ROWNUM +1 as num, numA.*
+				FROM  (				
+						SELECT 
+																	
+							tb.bno, tb.title, tb.boardType,tb.place,  tu.username,
+							
+							 tu.uid, tu.userId ,  tu.zoneCode, tb.imgCnt, tb.fileName, tb.boardPassword, tb.ip, tb.createdDate, tb.viewCnt 
+							
+							FROM  tbl_board tb INNER JOIN tbl_user tu 
+								
+							ON tb.uid =tu.uid  WHERE tb.bno > 0
+	 ]]>							
+							
+							<include refid="search"></include>
+
+			<![CDATA[			
+				
+							ORDER BY tb.bno desc
+							
+				) numA,  (select @ROWNUM :=0) n
+					
+		 ]]>					
+		
+			 WHERE boardType ='place_introduction' OR boardType='place_reviews'
+		<![CDATA[			
+					  ORDER BY num DESC
+		  
+		    ) AS a   WHERE bno >0 
+		    
+		]]> 		
+		
+		
+		<![CDATA[	 
+		
+			LIMIT #{pageStart} , #{perPageNum}
+		]]> 
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 일간 등록된 데이터중 추천수가 높고 조회수가 높은 순 5개 -->
+	<select id="dailyBestList" resultType="view.road.model.vo.BoardVO">
+	SELECT 
+		
+		bno, uid, boardType, title, place,  viewCnt,  fileName, createdDate ,
+	
+		(SELECT COUNT(*) FROM tbl_like WHERE bno=tb.bno) AS likeCnt,
+	
+		(SELECT COUNT(*) FROM tbl_reply WHERE bno=tb.bno) AS replyCnt ,
+		
+		(SELECT username FROM tbl_user WHERE uid=tb.uid) AS username 
+	
+	FROM tbl_board tb 
+	
+	WHERE createdDate BETWEEN DATE_ADD(NOW(), INTERVAL -1 DAY) AND NOW() 
+	
+	AND  (boardType='place_reviews' OR  boardType='place_introduction'  ) 
+	
+	ORDER BY likeCnt DESC , viewCnt DESC LIMIT 0, 5
+	</select>
+	
+	
+	<!-- 주가 등록된 데이터중 추천수가 높고 조회수가 높은 순 5개 -->
+	<select id="weeklyBestList" resultType="view.road.model.vo.BoardVO">
+	
+		SELECT 
+			
+			bno, uid, boardType, title, place,  viewCnt,  fileName, createdDate ,
+		
+			(SELECT COUNT(*) FROM tbl_like WHERE bno=tb.bno) AS likeCnt,
+		
+			(SELECT COUNT(*) FROM tbl_reply WHERE bno=tb.bno) AS replyCnt ,
+			
+			(SELECT username FROM tbl_user WHERE uid=tb.uid) AS username 
+		
+		FROM tbl_board tb 
+		
+		WHERE createdDate BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK) AND NOW() 
+		
+		AND  (boardType='place_reviews' OR  boardType='place_introduction'  ) 
+		
+		ORDER BY likeCnt DESC , viewCnt DESC LIMIT 0, 5
+		
+	</select>
+
+	<!-- 월간 등록된 데이터중 추천수가 높고 조회수가 높은 순 5개 -->
+	<select id="monthlyBestList" resultType="view.road.model.vo.BoardVO">	
+		SELECT 
+			bno, uid, boardType, title, place,  viewCnt,  fileName, createdDate ,
+		
+			(SELECT COUNT(*) FROM tbl_like WHERE bno=tb.bno) AS likeCnt,
+		
+			(SELECT COUNT(*) FROM tbl_reply WHERE bno=tb.bno) AS replyCnt ,
+			
+			(SELECT username FROM tbl_user WHERE uid=tb.uid) AS username 
+		
+		FROM tbl_board tb 
+		
+		WHERE createdDate BETWEEN DATE_ADD(NOW(), INTERVAL -1 MONTH) AND NOW() 
+		
+		AND  (boardType='place_reviews' OR  boardType='place_introduction'  ) 
+		
+		ORDER BY likeCnt DESC , viewCnt DESC LIMIT 0, 5
+			
+	</select>
+	
+	
+		
+	
+	
+	<!-- 검색조건sql -->
+	<sql id="myBoardSearch">
+		<if test="keyword !=null">
+			<if test="!keyword.equals('')">
+			AND tb.title like CONCAT('%', #{keyword}, '%')
+			</if>								
+		</if>
+		
+		<if test="boardType !=null and  !boardType.equals('') and  !boardType.equals('all') ">		
+			AND tb.boardType =#{boardType}
+		</if>		
+	</sql>
+
+
+	<select id="myBoardTotalCount" resultType="int">		
+	SELECT  		
+		COUNT(tb.bno) AS cnt 	
+	FROM   		
+   		tbl_board tb  WHERE tb.uid=#{uid}
+   		<include refid="search"></include>   		 
+	</select>
+
+
+	<select id="myBoardList" resultType="view.road.model.vo.BoardVO">
+		SELECT * FROM 
+	    (
+				SELECT 				    
+				    @rownum := @rownum + 1 as num,   tb.createdDate,				 	
+					tb.uid, tb.bno, tb.boardType, tb.title, tb.place, tb.fileName				
+				FROM 				 				
+				  (SELECT @rownum :=0) AS r , 			 			   
+				  tbl_board tb  WHERE tb.uid=#{uid}	
+				<include refid="myBoardSearch"></include>			
+				ORDER BY  bno ASC		  
+		) SUB
+		ORDER BY SUB.num DESC LIMIT #{pageStart} , #{perPageNum}
+	</select>
+	
+	
+	
+
+
+	<select id="mainBestList"  resultType="view.road.model.vo.BoardVO">
+		SELECT 
+		
+		 bno, uid, boardType, title, place,  viewCnt,  fileName, createdDate ,
+	
+		(SELECT COUNT(*) FROM tbl_like WHERE bno=tb.bno) AS likeCnt,
+	
+		(SELECT COUNT(*) FROM tbl_reply WHERE bno=tb.bno) AS replyCnt ,
+		
+		(SELECT username FROM tbl_user WHERE uid=tb.uid) AS username 
+	
+		FROM tbl_board tb 
+		
+		WHERE
+		
+		(boardType='place_reviews' OR  boardType='place_introduction'  ) 
+		
+		
+		<if test="orderType !=null ">
+			<if test="orderType == 'view'.toString()">
+				ORDER BY viewCnt DESC 
+			</if>
+			
+			<if test="orderType == 'like'.toString()">
+				ORDER BY likeCnt DESC 
+			</if>
+			
+			
+			<if test="orderType == 'reply'.toString()">
+			ORDER BY replyCnt DESC 
+			</if>			
+		</if>	
+		
+		LIMIT 0, 5
+	</select>
+	
+	
+	
+	
+	
+</mapper>

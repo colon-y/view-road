@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="view.road.model.dao.mapper.ReplyMapper">
+	
+ 	<resultMap id="replyMAP" type="view.road.model.vo.ReplyVO">
+ 		<result property="rno" column="rno" />
+		<result property="bno" column="bno" />		
+		<result property="content" column="content" />
+		<result property="userId" column="userId" />	
+		<result property="username" column="username" />
+		<result property="replyPassword" column="replyPassword" />	
+		<result property="ip" column="ip" />
+		<result property="createdDate" column="createdDate" />													    
+	</resultMap>
+ 
+
+	<!-- 등록처리   -->
+	<insert id="createBoard">
+		INSERT INTO tbl_reply (bno, content, uid , replyPassword , ip ) 			  			  
+		VALUES (#{bno} , #{content} ,#{uid} ,#{replyPassword} ,#{ip} )
+	</insert>
+
+
+	
+	<select id="replyTotalCount" resultType="int">	
+		SELECT count(rno) FROM  tbl_reply WHERE bno=#{bno}
+	</select>
+
+
+	<!-- 목록처리  -->
+	<select id="listAllReplyVO" resultMap="replyMAP">
+		SELECT * FROM 
+		(
+			SELECT  
+			
+			@num:=@num+1 as num,
+			
+			tr.rno, tr.bno, tr.content, tr.replyPassword, tr.ip, tr.createdDate, tr.modifiedDate ,
+			
+			tu.uid, tu.userId, tu.username, tu.zoneCode 
+			
+		  FROM (select @num:=0) n , tbl_reply tr INNER JOIN tbl_user tu 
+				
+		  ON tr.uid =tu.uid  WHERE tr.bno=#{bno}
+		
+		) AS a
+		
+		 ORDER BY a.rno DESC
+		 
+		 LIMIT #{pageStart} , #{perPageNum}
+	</select>
+
+
+	<!-- 한개의 정보 불러오기 처리 -->
+	<select id="getRnoInfo" resultMap="replyMAP">
+	SELECT * FROM tbl_reply WHERE rno=#{rno} 
+	</select>
+	
+	
+	<!-- 삭제처리 -->
+	<delete id="deleteBoard">
+	 DELETE FROM tbl_reply WHERE rno=#{rno} 
+	</delete>
+	
+	
+	<!-- 비밀번호 확인처리  없으면 0 존재 하면 1 -->
+	<select id="getPasowrdConfirm" resultType="int">
+	  SELECT COUNT(rno) FROM tbl_reply WHERE rno=#{rno} AND replyPassword=#{replyPassword}
+	</select>
+	
+	
+	<!-- 비밀번호와 tbl_reply 의 아이번호를 확인 후 삭제처리 -->
+	<delete id="removePassowrd">
+	 DELETE FROM tbl_reply WHERE rno=#{rno} AND replyPassword=#{replyPassword}
+	</delete>
+
+	
+	<update id="updateReply">
+	
+	UPDATE 	tbl_reply
+	
+	SET content=#{content}, modifiedDate=now()
+	
+	WHERE rno=#{rno}
+	
+	</update>
+
+
+</mapper>
+
+
+
+
+
