@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import view.road.model.vo.LikeVO;
 import view.road.service.LikeService;
 
-// 추천곡을 적어주세요! url
 @Controller
 @RequestMapping("/like/")
 public class LikeController {
@@ -40,7 +39,7 @@ public class LikeController {
 			return ResponseEntity.status(HttpStatus.OK).body(0);
 			
 		} else {
-			System.out.println(" 좋아요 처리");
+			System.out.println("좋아요 처리");
 			likeService.insert(likeVO);
 			return ResponseEntity.status(HttpStatus.OK).body(1);
 		}

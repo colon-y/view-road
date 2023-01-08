@@ -61,6 +61,7 @@
 					<li class="m-login" ><a href="/admin" class="nav-title" >관리자 페이지</a></li>
 				</c:when>
 				<c:when test="${USER.role eq 'ROLE_MANAGER'}">
+					<li class="m-login" ><a href="/members" class="nav-title" >마이페이지</a></li>
 					<li class="m-login" ><a href="/admin" class="nav-title" >중간관리자</a></li>
 				</c:when>
 				<c:when test="${USER.role eq 'ROLE_USER'}">
@@ -178,6 +179,7 @@
 					<li class="m-login" ><a href="/admin" class="mobile-ml-10" >관리자 페이지</a></li>
 				</c:when>
 				<c:when test="${USER.role eq 'ROLE_MANAGER'}">
+					<li class="m-login" ><a href="/members" class="mobile-ml-10" >마이페이지</a></li>
 					<li class="m-login" ><a href="/admin" class="mobile-ml-10" >중간관리자</a>
 				</c:when>
 				<c:when test="${USER.role eq 'ROLE_USER'}">

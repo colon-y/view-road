@@ -70,7 +70,7 @@ public class FileUploadController {
 	// 경로 차이뿐이 없다.
 	@RequestMapping(value = "/summernote/upload")
 	public void imageUpload3(HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("file") MultipartFile file) throws Exception {
+			    @ModelAttribute("file") MultipartFile file) throws Exception {
 
 		logger.info(" 파일 업로드  : upload {}", file.toString());
 		// 1.summernote 에서 파일을 넘겨주는 이름이 file 로 설정 되어 있다. 반드시 upload 로 설정

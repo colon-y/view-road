@@ -9,7 +9,7 @@
 			3.maridab(DB): 10.11
 			4.mybatis(자바 오브젝트와 SQL사이의 자동 매핑 기능을 지원하는 ORM) 
 
-프로튼엔드 :
+프론트엔드 :
 			5.jsp
 			6.HTML
 			7.css

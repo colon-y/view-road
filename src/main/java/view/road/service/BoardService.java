@@ -38,7 +38,7 @@ public interface BoardService {
 	//조회수가 높은것 5 개 목록 가져오기
 	public List<BoardVO> bestViewList() throws Exception;
 	
-	//글수가 높은것 5개 목록을 가져오
+	//글수가 높은것 5개 목록을 가져오기
 	public List<BoardVO> bestCommentList() throws Exception;
 
 	public void deleteImgFile(BoardVO boardVO) throws Exception;

@@ -1,0 +1,925 @@
+2022:12:21 22:15:08.603 INFO  --- [restartedMain]
+				view.road.Application : Starting Application using Java 11 on DESKTOP-8ECQV9E with PID 16228 (C:\home\workspace\view-road\target\classes started by schue in C:\home\workspace\view-road) 
+2022:12:21 22:15:08.616 INFO  --- [restartedMain]
+				view.road.Application : No active profile set, falling back to 1 default profile: "default" 
+2022:12:21 22:15:13.790 INFO  --- [restartedMain]
+				o.a.catalina.core.StandardService : Starting service [Tomcat] 
+2022:12:21 22:15:13.796 INFO  --- [restartedMain]
+				o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/9.0.69] 
+2022:12:21 22:15:15.303 INFO  --- [restartedMain]
+				o.apache.jasper.servlet.TldScanner : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time. 
+2022:12:21 22:15:15.340 INFO  --- [restartedMain]
+				o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext 
+2022:12:21 22:15:16.490 WARN  --- [restartedMain]
+				o.a.c.c.C.[Tomcat].[localhost].[/] : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [504D3DD140B38590AFB87F04CC045163] 
+2022:12:21 22:15:19.785 INFO  --- [restartedMain]
+				com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting... 
+2022:12:21 22:15:20.064 INFO  --- [restartedMain]
+				com.zaxxer.hikari.pool.PoolBase : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.ConnectionSpy does not define or inherit an implementation of the resolved method abstract getNetworkTimeout()I of interface java.sql.Connection.) 
+2022:12:21 22:15:20.123 INFO  --- [restartedMain]
+				com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed. 
+2022:12:21 22:15:27.932 INFO  --- [restartedMain]
+				view.road.Application : Started Application in 22.13 seconds (JVM running for 28.548) 
+2022:12:21 22:16:11.991 INFO  --- [http-nio-9090-exec-1]
+				o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2022:12:21 22:16:11.992 INFO  --- [http-nio-9090-exec-1]
+				o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet' 
+2022:12:21 22:16:11.996 INFO  --- [http-nio-9090-exec-1]
+				o.s.web.servlet.DispatcherServlet : Completed initialization in 3 ms 
+2022:12:21 22:16:13.973 WARN  --- [http-nio-9090-exec-1]
+				o.a.c.util.SessionIdGeneratorBase : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [1,823] milliseconds. 
+2022:12:21 22:16:13.975 INFO  --- [http-nio-9090-exec-1]
+				view.road.config.VisitCounter : sessionCreated 실행 , {}  
+2022:12:21 22:16:14.138 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:14.140 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |bno |uid |boardType |title |place |viewCnt |fileName |createdDate |likeCnt |replyCnt |username | 
+2022:12:21 22:16:14.141 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:14.143 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:14.157 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:14.158 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |bno |uid |boardType |title |place |viewCnt |fileName |createdDate |likeCnt |replyCnt |username | 
+2022:12:21 22:16:14.159 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:14.160 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:14.209 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.210 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                                  |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:14.214 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.216 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg           |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:14.217 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg          |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:14.219 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                  |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:14.221 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |109 |33  |place_reviews      |자연과 생명의 땅, 대관령 3대 목장                               |대관령 양떼목장   |8       |/2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg |2022-11-22 19:03:12.0 |1       |1        |유저11     | 
+2022:12:21 22:16:14.222 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |122 |33  |place_reviews      |비오는날 가평여행 가평 갈만한곳                                  |경기도 가평     |388     |/2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg      |2022-11-22 20:07:28.0 |0       |9        |유저11     | 
+2022:12:21 22:16:14.225 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.251 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:14.252 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |num |bno |title          |boardType |username |uid |userId    |zoneCode |imgCnt |fileName |boardPassword |ip              |createdDate           |viewCnt | 
+2022:12:21 22:16:14.252 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:14.253 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |19  |134 |안녕하세요          |qna       |코리아      |46  |korea1234 |03900    |0      |null     |null          |125.180.195.96  |2022-12-03 11:24:00.0 |3       | 
+2022:12:21 22:16:14.254 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |18  |80  |daSD           |qna       |유저5      |27  |user5     |15382    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 23:11:31.0 |79      | 
+2022:12:21 22:16:14.255 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |17  |79  |일본여행 장소 질문.    |qna       |유저7      |29  |user7     |16268    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:20:41.0 |21      | 
+2022:12:21 22:16:14.256 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |16  |78  |졸업여행 장소,놀거리 질문 |qna       |유저6      |28  |user6     |03139    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:18:25.0 |5       | 
+2022:12:21 22:16:14.256 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |15  |77  |여행장소추천 및 코스 질문 |qna       |유저6      |28  |user6     |03139    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:17:29.0 |8       | 
+2022:12:21 22:16:14.257 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:14.281 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:14.282 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |num |bno |title                                              |boardType |username |uid |userId |zoneCode |imgCnt |fileName                                                                                       |boardPassword |ip              |createdDate           |viewCnt | 
+2022:12:21 22:16:14.283 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:14.284 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |19  |136 |안녕하세요.                                             |free      |최고관리자    |1   |admin  |03168    |0      |null                                                                                           |null          |0:0:0:0:0:0:0:1 |2022-12-04 18:32:54.0 |3       | 
+2022:12:21 22:16:14.285 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |18  |60  |두루웰 숲속문화촌 힐링장소로 인기 [출처] 두루웰 숲속문화촌 힐링장소로 인기|작성자 철원  |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/s_9acc90a2-9bd8-4283-b06b-3900e9c80cf5_0.jpg                                       |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:54:43.0 |196     | 
+2022:12:21 22:16:14.286 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |17  |59  |해운대 부산아쿠아리움 아이들에게 인기만점 체험장소 락풀에서 즐겨보세요~ [출처] 해운대 부 |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/s_7a424850-4884-41cd-b95d-ccb9848b64a5_SE-0afe832e-5685-4162-a0e4-a6eba37183bb.jpg |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:52:47.0 |12      | 
+2022:12:21 22:16:14.286 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |16  |58  |조용한 휴식의 도시 강릉                                      |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/059fb8e5-b635-4bdf-98ac-35b229b32c65_878c85e5-265c-4af7-8a99-cc27d80670fa.webp     |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:51:25.0 |25      | 
+2022:12:21 22:16:14.287 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |15  |57  |센소지&#40;아사쿠사 칸논&#41;                               |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/1a0e62d3-4f54-4655-9a1d-f0c5456c48cd_ebbf63ca-7cbd-48e1-826d-0e65833a7a3d.webp     |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:49:47.0 |15      | 
+2022:12:21 22:16:14.288 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:14.436 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.436 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                             |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:14.437 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.437 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |122 |33  |place_reviews      |비오는날 가평여행 가평 갈만한곳                                  |경기도 가평     |388     |/2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg |2022-11-22 20:07:28.0 |0       |9        |유저11     | 
+2022:12:21 22:16:14.438 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg      |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:14.439 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |83  |23  |place_introduction |제주특별자치도 서귀포시 성산읍 성산리 1번지                           |성산 일출봉     |114     |/2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg          |2022-11-21 20:50:51.0 |0       |0        |유저1      | 
+2022:12:21 22:16:14.440 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg     |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:14.441 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg             |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:14.451 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.460 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.460 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                                  |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:14.461 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:14.464 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg           |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:14.464 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                  |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:14.465 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |109 |33  |place_reviews      |자연과 생명의 땅, 대관령 3대 목장                               |대관령 양떼목장   |8       |/2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg |2022-11-22 19:03:12.0 |1       |1        |유저11     | 
+2022:12:21 22:16:14.466 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg          |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:14.466 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |83  |23  |place_introduction |제주특별자치도 서귀포시 성산읍 성산리 1번지                           |성산 일출봉     |114     |/2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg               |2022-11-21 20:50:51.0 |0       |0        |유저1      | 
+2022:12:21 22:16:14.467 INFO  --- [http-nio-9090-exec-1]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.838 INFO  --- [http-nio-9090-exec-2]
+				view.road.config.VisitCounter : sessionCreated 실행 , {}  
+2022:12:21 22:16:15.853 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:15.854 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |bno |uid |boardType |title |place |viewCnt |fileName |createdDate |likeCnt |replyCnt |username | 
+2022:12:21 22:16:15.855 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:15.855 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:15.858 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:15.859 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |bno |uid |boardType |title |place |viewCnt |fileName |createdDate |likeCnt |replyCnt |username | 
+2022:12:21 22:16:15.859 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:15.860 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:15.894 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.894 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                                  |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:15.895 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.896 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg           |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:15.898 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg          |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:15.898 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                  |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:15.898 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |109 |33  |place_reviews      |자연과 생명의 땅, 대관령 3대 목장                               |대관령 양떼목장   |8       |/2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg |2022-11-22 19:03:12.0 |1       |1        |유저11     | 
+2022:12:21 22:16:15.899 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |122 |33  |place_reviews      |비오는날 가평여행 가평 갈만한곳                                  |경기도 가평     |388     |/2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg      |2022-11-22 20:07:28.0 |0       |9        |유저11     | 
+2022:12:21 22:16:15.900 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.912 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:15.913 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |num |bno |title          |boardType |username |uid |userId    |zoneCode |imgCnt |fileName |boardPassword |ip              |createdDate           |viewCnt | 
+2022:12:21 22:16:15.913 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:15.913 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |19  |134 |안녕하세요          |qna       |코리아      |46  |korea1234 |03900    |0      |null     |null          |125.180.195.96  |2022-12-03 11:24:00.0 |3       | 
+2022:12:21 22:16:15.914 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |18  |80  |daSD           |qna       |유저5      |27  |user5     |15382    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 23:11:31.0 |79      | 
+2022:12:21 22:16:15.914 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |17  |79  |일본여행 장소 질문.    |qna       |유저7      |29  |user7     |16268    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:20:41.0 |21      | 
+2022:12:21 22:16:15.914 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |16  |78  |졸업여행 장소,놀거리 질문 |qna       |유저6      |28  |user6     |03139    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:18:25.0 |5       | 
+2022:12:21 22:16:15.914 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |15  |77  |여행장소추천 및 코스 질문 |qna       |유저6      |28  |user6     |03139    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:17:29.0 |8       | 
+2022:12:21 22:16:15.915 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:15.934 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:15.934 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |num |bno |title                                              |boardType |username |uid |userId |zoneCode |imgCnt |fileName                                                                                       |boardPassword |ip              |createdDate           |viewCnt | 
+2022:12:21 22:16:15.935 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:15.935 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |19  |136 |안녕하세요.                                             |free      |최고관리자    |1   |admin  |03168    |0      |null                                                                                           |null          |0:0:0:0:0:0:0:1 |2022-12-04 18:32:54.0 |3       | 
+2022:12:21 22:16:15.936 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |18  |60  |두루웰 숲속문화촌 힐링장소로 인기 [출처] 두루웰 숲속문화촌 힐링장소로 인기|작성자 철원  |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/s_9acc90a2-9bd8-4283-b06b-3900e9c80cf5_0.jpg                                       |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:54:43.0 |196     | 
+2022:12:21 22:16:15.936 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |17  |59  |해운대 부산아쿠아리움 아이들에게 인기만점 체험장소 락풀에서 즐겨보세요~ [출처] 해운대 부 |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/s_7a424850-4884-41cd-b95d-ccb9848b64a5_SE-0afe832e-5685-4162-a0e4-a6eba37183bb.jpg |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:52:47.0 |12      | 
+2022:12:21 22:16:15.936 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |16  |58  |조용한 휴식의 도시 강릉                                      |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/059fb8e5-b635-4bdf-98ac-35b229b32c65_878c85e5-265c-4af7-8a99-cc27d80670fa.webp     |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:51:25.0 |25      | 
+2022:12:21 22:16:15.936 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |15  |57  |센소지&#40;아사쿠사 칸논&#41;                               |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/1a0e62d3-4f54-4655-9a1d-f0c5456c48cd_ebbf63ca-7cbd-48e1-826d-0e65833a7a3d.webp     |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:49:47.0 |15      | 
+2022:12:21 22:16:15.937 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:15.969 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.970 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                             |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:15.970 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.970 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |122 |33  |place_reviews      |비오는날 가평여행 가평 갈만한곳                                  |경기도 가평     |388     |/2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg |2022-11-22 20:07:28.0 |0       |9        |유저11     | 
+2022:12:21 22:16:15.971 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg      |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:15.971 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |83  |23  |place_introduction |제주특별자치도 서귀포시 성산읍 성산리 1번지                           |성산 일출봉     |114     |/2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg          |2022-11-21 20:50:51.0 |0       |0        |유저1      | 
+2022:12:21 22:16:15.971 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg     |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:15.971 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg             |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:15.972 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.994 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.994 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                                  |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:15.994 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:15.994 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg           |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:15.996 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                  |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:15.996 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |109 |33  |place_reviews      |자연과 생명의 땅, 대관령 3대 목장                               |대관령 양떼목장   |8       |/2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg |2022-11-22 19:03:12.0 |1       |1        |유저11     | 
+2022:12:21 22:16:15.997 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg          |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:15.997 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |83  |23  |place_introduction |제주특별자치도 서귀포시 성산읍 성산리 1번지                           |성산 일출봉     |114     |/2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg               |2022-11-21 20:50:51.0 |0       |0        |유저1      | 
+2022:12:21 22:16:15.997 INFO  --- [http-nio-9090-exec-2]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:20.103 INFO  --- [http-nio-9090-exec-1]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg 
+2022:12:21 22:16:20.103 INFO  --- [http-nio-9090-exec-6]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg 
+2022:12:21 22:16:20.112 INFO  --- [http-nio-9090-exec-4]
+				v.r.controller.FileUploadController : File NAME : /2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg 
+2022:12:21 22:16:20.122 INFO  --- [http-nio-9090-exec-8]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg 
+2022:12:21 22:16:20.125 INFO  --- [http-nio-9090-exec-10]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg 
+2022:12:21 22:16:20.189 INFO  --- [http-nio-9090-exec-5]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg 
+2022:12:21 22:16:29.810 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|-------|---------|----------------|--------------|-------|---------|---------------|------|-----------|-----------|-------------------------------------------------------------|----------------|----------------|----------------------|----------------------| 
+2022:12:21 22:16:29.810 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |uid |userId |username |email           |phone         |gender |zoneCode |address        |level |birth      |role       |password                                                     |ip              |userColor       |createdDate           |modifiedDate          | 
+2022:12:21 22:16:29.811 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|-------|---------|----------------|--------------|-------|---------|---------------|------|-----------|-----------|-------------------------------------------------------------|----------------|----------------|----------------------|----------------------| 
+2022:12:21 22:16:29.811 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |1   |admin  |최고관리자    |admin@gmail.com |010-1111-1111 |female |03168    |서울 종로구 경희궁길 57 |10    |2011-02-27 |ROLE_ADMIN |$2a$10$lnJkauKLNfH4K1LzSO/Ac.fDOCjLNCEJ8IcUL.RgJHb.PYEvg7/Ni |0:0:0:0:0:0:0:1 |profile_color_0 |2022-11-19 22:45:28.0 |2022-11-19 22:45:28.0 | 
+2022:12:21 22:16:29.811 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|-------|---------|----------------|--------------|-------|---------|---------------|------|-----------|-----------|-------------------------------------------------------------|----------------|----------------|----------------------|----------------------| 
+2022:12:21 22:16:29.811 INFO  --- [http-nio-9090-exec-10]
+				v.r.c.auth.PrincipalDetailsService : * userEntitiy   : UserVO(num=null, uid=1, userId=admin, username=최고관리자, email=admin@gmail.com, phone=010-1111-1111, membership=null, gender=female, birth=2011-02-27, zoneCode=03168, address=서울 종로구 경희궁길 57, password=$2a$10$lnJkauKLNfH4K1LzSO/Ac.fDOCjLNCEJ8IcUL.RgJHb.PYEvg7/Ni, passwordCheck=null, ip=0:0:0:0:0:0:0:1, age=0, role=ROLE_ADMIN, level=10, emailAuthKey=null, userColor=profile_color_5, createdDate=2022-11-19 22:45:28.0, modifiedDate=2022-11-19 22:45:28.0)  
+2022:12:21 22:16:30.004 INFO  --- [http-nio-9090-exec-10]
+				v.r.u.e.CustomAuthFailureHandler : *****  CustomAuthFailureHandler  ==>  Bad credentials  
+2022:12:21 22:16:34.463 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|-------|---------|----------------|--------------|-------|---------|---------------|------|-----------|-----------|-------------------------------------------------------------|----------------|----------------|----------------------|----------------------| 
+2022:12:21 22:16:34.464 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |uid |userId |username |email           |phone         |gender |zoneCode |address        |level |birth      |role       |password                                                     |ip              |userColor       |createdDate           |modifiedDate          | 
+2022:12:21 22:16:34.466 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|-------|---------|----------------|--------------|-------|---------|---------------|------|-----------|-----------|-------------------------------------------------------------|----------------|----------------|----------------------|----------------------| 
+2022:12:21 22:16:34.467 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |1   |admin  |최고관리자    |admin@gmail.com |010-1111-1111 |female |03168    |서울 종로구 경희궁길 57 |10    |2011-02-27 |ROLE_ADMIN |$2a$10$lnJkauKLNfH4K1LzSO/Ac.fDOCjLNCEJ8IcUL.RgJHb.PYEvg7/Ni |0:0:0:0:0:0:0:1 |profile_color_0 |2022-11-19 22:45:28.0 |2022-11-19 22:45:28.0 | 
+2022:12:21 22:16:34.468 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|-------|---------|----------------|--------------|-------|---------|---------------|------|-----------|-----------|-------------------------------------------------------------|----------------|----------------|----------------------|----------------------| 
+2022:12:21 22:16:34.468 INFO  --- [http-nio-9090-exec-8]
+				v.r.c.auth.PrincipalDetailsService : * userEntitiy   : UserVO(num=null, uid=1, userId=admin, username=최고관리자, email=admin@gmail.com, phone=010-1111-1111, membership=null, gender=female, birth=2011-02-27, zoneCode=03168, address=서울 종로구 경희궁길 57, password=$2a$10$lnJkauKLNfH4K1LzSO/Ac.fDOCjLNCEJ8IcUL.RgJHb.PYEvg7/Ni, passwordCheck=null, ip=0:0:0:0:0:0:0:1, age=0, role=ROLE_ADMIN, level=10, emailAuthKey=null, userColor=profile_color_8, createdDate=2022-11-19 22:45:28.0, modifiedDate=2022-11-19 22:45:28.0)  
+2022:12:21 22:16:34.656 INFO  --- [http-nio-9090-exec-10]
+				view.road.controller.HomController : 로그인 정보 userDetails :  {} UserVO(num=null, uid=1, userId=admin, username=최고관리자, email=admin@gmail.com, phone=010-1111-1111, membership=null, gender=female, birth=2011-02-27, zoneCode=03168, address=서울 종로구 경희궁길 57, password=$2a$10$lnJkauKLNfH4K1LzSO/Ac.fDOCjLNCEJ8IcUL.RgJHb.PYEvg7/Ni, passwordCheck=null, ip=0:0:0:0:0:0:0:1, age=0, role=ROLE_ADMIN, level=10, emailAuthKey=null, userColor=profile_color_8, createdDate=2022-11-19 22:45:28.0, modifiedDate=2022-11-19 22:45:28.0) 
+2022:12:21 22:16:34.660 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:34.660 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |bno |uid |boardType |title |place |viewCnt |fileName |createdDate |likeCnt |replyCnt |username | 
+2022:12:21 22:16:34.661 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:34.661 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:34.665 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:34.666 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |bno |uid |boardType |title |place |viewCnt |fileName |createdDate |likeCnt |replyCnt |username | 
+2022:12:21 22:16:34.666 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:34.666 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|----------|------|------|--------|---------|------------|--------|---------|---------| 
+2022:12:21 22:16:34.672 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.673 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                                  |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:34.673 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.673 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg           |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:34.673 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg          |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:34.674 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                  |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:34.674 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |109 |33  |place_reviews      |자연과 생명의 땅, 대관령 3대 목장                               |대관령 양떼목장   |8       |/2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg |2022-11-22 19:03:12.0 |1       |1        |유저11     | 
+2022:12:21 22:16:34.675 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |122 |33  |place_reviews      |비오는날 가평여행 가평 갈만한곳                                  |경기도 가평     |388     |/2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg      |2022-11-22 20:07:28.0 |0       |9        |유저11     | 
+2022:12:21 22:16:34.675 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.681 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:34.682 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |num |bno |title          |boardType |username |uid |userId    |zoneCode |imgCnt |fileName |boardPassword |ip              |createdDate           |viewCnt | 
+2022:12:21 22:16:34.682 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:34.682 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |19  |134 |안녕하세요          |qna       |코리아      |46  |korea1234 |03900    |0      |null     |null          |125.180.195.96  |2022-12-03 11:24:00.0 |3       | 
+2022:12:21 22:16:34.683 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |18  |80  |daSD           |qna       |유저5      |27  |user5     |15382    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 23:11:31.0 |79      | 
+2022:12:21 22:16:34.683 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |17  |79  |일본여행 장소 질문.    |qna       |유저7      |29  |user7     |16268    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:20:41.0 |21      | 
+2022:12:21 22:16:34.683 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |16  |78  |졸업여행 장소,놀거리 질문 |qna       |유저6      |28  |user6     |03139    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:18:25.0 |5       | 
+2022:12:21 22:16:34.683 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |15  |77  |여행장소추천 및 코스 질문 |qna       |유저6      |28  |user6     |03139    |0      |null     |null          |0:0:0:0:0:0:0:1 |2022-11-20 22:17:29.0 |8       | 
+2022:12:21 22:16:34.684 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|---------------|----------|---------|----|----------|---------|-------|---------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:34.690 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:34.691 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |num |bno |title                                              |boardType |username |uid |userId |zoneCode |imgCnt |fileName                                                                                       |boardPassword |ip              |createdDate           |viewCnt | 
+2022:12:21 22:16:34.691 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:34.691 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |19  |136 |안녕하세요.                                             |free      |최고관리자    |1   |admin  |03168    |0      |null                                                                                           |null          |0:0:0:0:0:0:0:1 |2022-12-04 18:32:54.0 |3       | 
+2022:12:21 22:16:34.692 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |18  |60  |두루웰 숲속문화촌 힐링장소로 인기 [출처] 두루웰 숲속문화촌 힐링장소로 인기|작성자 철원  |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/s_9acc90a2-9bd8-4283-b06b-3900e9c80cf5_0.jpg                                       |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:54:43.0 |196     | 
+2022:12:21 22:16:34.692 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |17  |59  |해운대 부산아쿠아리움 아이들에게 인기만점 체험장소 락풀에서 즐겨보세요~ [출처] 해운대 부 |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/s_7a424850-4884-41cd-b95d-ccb9848b64a5_SE-0afe832e-5685-4162-a0e4-a6eba37183bb.jpg |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:52:47.0 |12      | 
+2022:12:21 22:16:34.692 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |16  |58  |조용한 휴식의 도시 강릉                                      |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/059fb8e5-b635-4bdf-98ac-35b229b32c65_878c85e5-265c-4af7-8a99-cc27d80670fa.webp     |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:51:25.0 |25      | 
+2022:12:21 22:16:34.692 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |15  |57  |센소지&#40;아사쿠사 칸논&#41;                               |free      |유저4      |26  |user4  |03721    |1      |/2022/11/20/1a0e62d3-4f54-4655-9a1d-f0c5456c48cd_ebbf63ca-7cbd-48e1-826d-0e65833a7a3d.webp     |null          |0:0:0:0:0:0:0:1 |2022-11-20 17:49:47.0 |15      | 
+2022:12:21 22:16:34.693 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|---------------------------------------------------|----------|---------|----|-------|---------|-------|-----------------------------------------------------------------------------------------------|--------------|----------------|----------------------|--------| 
+2022:12:21 22:16:34.699 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.699 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                             |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:34.700 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.700 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |122 |33  |place_reviews      |비오는날 가평여행 가평 갈만한곳                                  |경기도 가평     |388     |/2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg |2022-11-22 20:07:28.0 |0       |9        |유저11     | 
+2022:12:21 22:16:34.700 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg      |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:34.700 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |83  |23  |place_introduction |제주특별자치도 서귀포시 성산읍 성산리 1번지                           |성산 일출봉     |114     |/2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg          |2022-11-21 20:50:51.0 |0       |0        |유저1      | 
+2022:12:21 22:16:34.701 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg     |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:34.701 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg             |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:34.701 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|---------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.707 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.707 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |bno |uid |boardType          |title                                              |place      |viewCnt |fileName                                                                  |createdDate           |likeCnt |replyCnt |username | 
+2022:12:21 22:16:34.707 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:34.707 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |102 |25  |place_introduction |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322          |합천 황매산철쭉제  |163     |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg           |2022-11-21 23:12:01.0 |2       |11       |유저3      | 
+2022:12:21 22:16:34.708 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |101 |25  |place_introduction |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                          |파주 심학산 돌곶이 |89      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                  |2022-11-21 23:08:33.0 |1       |1        |유저3      | 
+2022:12:21 22:16:34.708 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |109 |33  |place_reviews      |자연과 생명의 땅, 대관령 3대 목장                               |대관령 양떼목장   |8       |/2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg |2022-11-22 19:03:12.0 |1       |1        |유저11     | 
+2022:12:21 22:16:34.708 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |121 |33  |place_reviews      |소양강 스카이워크는 강원도 춘천시 영서로에 있으며 전체 길이는 174m이고 바닥이 투명 유 |소양강 스카이워크  |94      |/2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg          |2022-11-22 19:57:24.0 |1       |1        |유저11     | 
+2022:12:21 22:16:34.708 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |83  |23  |place_introduction |제주특별자치도 서귀포시 성산읍 성산리 1번지                           |성산 일출봉     |114     |/2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg               |2022-11-21 20:50:51.0 |0       |0        |유저1      | 
+2022:12:21 22:16:34.709 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-------------------|---------------------------------------------------|-----------|--------|--------------------------------------------------------------------------|----------------------|--------|---------|---------| 
+2022:12:21 22:16:35.242 INFO  --- [http-nio-9090-exec-3]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_f311060a-2c2c-4705-b916-84db690a819d_1665381647697.jpg 
+2022:12:21 22:16:35.254 INFO  --- [http-nio-9090-exec-4]
+				v.r.controller.FileUploadController : File NAME : /2022/11/21/s_d1c608f9-8d74-4c52-a758-5b9f368efac7_다운로드.jpg 
+2022:12:21 22:16:35.254 INFO  --- [http-nio-9090-exec-1]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg 
+2022:12:21 22:16:35.257 INFO  --- [http-nio-9090-exec-1]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_550d0bcf-6dab-448e-841c-897612272222_Thumbnail.jpg 
+2022:12:21 22:16:35.283 INFO  --- [http-nio-9090-exec-2]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg 
+2022:12:21 22:16:35.285 INFO  --- [http-nio-9090-exec-5]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_a786b505-2ddf-4f89-be12-981d8272997f_99892F3359B5890F17.jpg 
+2022:12:21 22:16:35.902 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:16:35.902 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:16:35.903 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:16:35.903 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:16:35.903 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:08.226 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:08.226 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:17:08.227 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:08.227 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:17:08.227 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:38.226 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:38.227 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:17:38.227 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:38.227 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:17:38.227 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:47.705 INFO  --- [http-nio-9090-exec-8]
+				v.r.c.PlaceIntroductionController : 페이지 정보  :  PageMakerAndSearch(page=1, perPageNum=25, pageStart=0, totalCount=0, startPage=0, endPage=0, prev=false, next=false, displayPageNum=10, tempEndPage=0, searchType=null, keyword=null, calTotal=null, calEndPage=null, query=null, searchRange=null, parmaRole=null, boardType=null, bno=0, uid=0) 
+2022:12:21 22:17:47.764 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:47.764 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |COUNT(bno) | 
+2022:12:21 22:17:47.765 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:47.765 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |18         | 
+2022:12:21 22:17:47.765 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:47.776 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:47.776 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |num |bno |title                                                      |boardType          |place      |username |uid |userId |zoneCode |imgCnt |fileName                                                                        |latitude         |longitude        |boardPassword |ip              |createdDate           |viewCnt |replyCnt |likeCnt | 
+2022:12:21 22:17:47.777 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:47.777 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |18  |133 |강남 직장인 회식장소 추천 맛집 베스트 30곳                                  |place_introduction |고메램 고깃집    |최고관리자    |1   |admin  |03168    |1      |/2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg |37.5090904790547 |127.057075333082 |null          |0:0:0:0:0:0:0:1 |2022-11-30 16:41:47.0 |8       |0        |0       | 
+2022:12:21 22:17:47.777 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |17  |102 |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322                  |place_introduction |합천 황매산철쭉제  |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg                 |37.8264202096643 |128.864967196147 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:12:01.0 |163     |11       |2       | 
+2022:12:21 22:17:47.778 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |16  |101 |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                                  |place_introduction |파주 심학산 돌곶이 |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                        |37.8264202096643 |128.864967196147 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:08:33.0 |89      |1        |1       | 
+2022:12:21 22:17:47.778 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |15  |100 |이토록 아름다운 영산강, 광주 명소 영산강 풍경                                 |place_introduction |영산강        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_089f638e-63a2-4fcd-958d-a49a9714f8ed_3.jpg                        |34.9755690073844 |126.622633272646 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:01:34.0 |39      |1        |0       | 
+2022:12:21 22:17:47.778 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |14  |99  |산책하기 좋은 도심 속 힐링 명소, 광주호호수생태원                               |place_introduction |임진각 평화누리공원 |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_e74b677a-89ed-4a61-afab-317500e94b2d_11.jpg                       |37.7863979207075 |126.786462333885 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:51:40.0 |30      |0        |0       | 
+2022:12:21 22:17:47.778 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |13  |98  |세계문화유산 불국사, 천 년의 향기 -경주 불국사 [유네스코 세계문화유산] - 주변 여행          |place_introduction |불국사        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_5aa484a8-71c4-4165-b2a2-793714198f4e_22.jpg                       |35.7783456826525 |129.299617502302 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:47:28.0 |86      |0        |0       | 
+2022:12:21 22:17:47.778 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |12  |97  |순천 가볼만한곳 낙안읍성 민속마을, 조선시대 모습을 그대로 간직한 곳                     |place_introduction |낙안읍성 민속마을  |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_e5bb8ed9-786b-4499-9fa6-d8acdfe41a0e_123.jpg                      |34.906401074793  |127.341822652758 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:42:46.0 |20      |0        |0       | 
+2022:12:21 22:17:47.779 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |11  |96  |[담양여행] 대나무 향기따라 떠나는 죽녹원, 대규모의 식물이 있는 크고 고요한 대나무 정원         |place_introduction |죽녹원        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_4db4d267-c698-4b26-a4f2-8c71dc3b2c53_15.jpg                       |35.1965226400352 |126.992047381312 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:40:18.0 |12      |0        |0       | 
+2022:12:21 22:17:47.779 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |10  |95  |100대명산 완등까지 한걸음 더 가까워져서 더 즐거웠던 지리산 천왕봉 등산이야기 바로 보여         |place_introduction |지리산 천왕봉    |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_461ae8bb-aa0f-43b1-acc5-2407c3b20a38_11.jpg                       |35.3091902847015 |127.431155794816 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:38:04.0 |11      |0        |0       | 
+2022:12:21 22:17:47.779 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |9   |94  |해인사&#40;海印寺&#41;는 대한민국 경상남도 합천군 가야면 치인리 가야산 중턱에 있는 사찰로서 양산 |place_introduction |해인사        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_bacc97e8-a067-4459-86ef-0e5dc9b19067_7.jpg                        |37.6927385576931 |126.882248144913 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:34:27.0 |36      |0        |0       | 
+2022:12:21 22:17:47.779 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |8   |93  |우도는 제주도의 동쪽 끝에 접하는 섬으로, 제주특별자치도에서 제주도 다음으로 큰 섬이다           |place_introduction |우도면        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_454327f7-b21b-4420-a3ba-f08099cd3b96_00.jpg                       |33.5194719510559 |126.951016739939 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:29:32.0 |17      |0        |0       | 
+2022:12:21 22:17:47.779 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |7   |92  |조선시대 누각을 볼 수 있는 아름다운 장소, 봉화 몽화각 [출처] 조선시대 누각을 볼 수          |place_introduction |봉화 몽화각     |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_3da2896b-4984-41e8-8f6b-63f013ce0494_00.jpg                       |36.6154799146883 |126.723597165875 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:26:48.0 |16      |0        |0       | 
+2022:12:21 22:17:47.779 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |6   |91  |4개의 늪&#40;우포늪, 목포늪, 사지포, 쪽지벌&#41;으로 구성된 자연배후습지국내 최대 규모의 자연 |place_introduction |우포늪        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_e2299fbe-fd91-4030-becc-d6eb6e36bb91_00.jpg                       |35.5424689392234 |128.418266105902 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:17:51.0 |11      |0        |0       | 
+2022:12:21 22:17:47.779 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |5   |90  |경화역은 경상남도 창원시 진해구 경화동에 위치하는 한국철도 진해선의 역이다.                 |place_introduction |경화역        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_a157360f-b453-453a-b187-ba154fa07423_00.jpg                       |35.1591082170829 |128.686924507334 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:14:04.0 |11      |1        |0       | 
+2022:12:21 22:17:47.780 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |4   |89  |광안대교 혹은 다이아몬드 브릿지는 부산광역시에 위치한 다리...                        |place_introduction |광안대교       |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_f193b57b-1b20-4c5f-9b83-5d496cca9173_00.jpg                       |35.6780823681493 |126.755972100079 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:11:01.0 |13      |0        |0       | 
+2022:12:21 22:17:47.780 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |3   |88  |남해의 가천 다랭이마을은 바다를 끼고 있지만 배 한척 없는 마을이다.                     |place_introduction |다랭이마을      |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_90cacc2b-7c24-4805-9c87-ac3783f0220d_71936_58362_4032.jpg         |34.7275201227888 |127.894034677694 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:09:22.0 |17      |0        |0       | 
+2022:12:21 22:17:47.780 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:47.790 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:47.790 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |num |bno |title                                     |boardType          |username |uid |userId |zoneCode |imgCnt |fileName                                                        |boardPassword |ip              |createdDate           |viewCnt |replyCnt |likeCnt | 
+2022:12:21 22:17:47.791 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:47.791 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |17  |102 |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322 |place_introduction |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:12:01.0 |163     |11       |2       | 
+2022:12:21 22:17:47.791 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:49.208 INFO  --- [http-nio-9090-exec-8]
+				v.r.controller.FileUploadController : File NAME : /2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg 
+2022:12:21 22:17:49.253 INFO  --- [http-nio-9090-exec-6]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg 
+2022:12:21 22:17:49.256 INFO  --- [http-nio-9090-exec-10]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg 
+2022:12:21 22:17:49.259 INFO  --- [http-nio-9090-exec-4]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_089f638e-63a2-4fcd-958d-a49a9714f8ed_3.jpg 
+2022:12:21 22:17:49.261 INFO  --- [http-nio-9090-exec-3]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_e74b677a-89ed-4a61-afab-317500e94b2d_11.jpg 
+2022:12:21 22:17:49.308 INFO  --- [http-nio-9090-exec-9]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_5aa484a8-71c4-4165-b2a2-793714198f4e_22.jpg 
+2022:12:21 22:17:49.311 INFO  --- [http-nio-9090-exec-2]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_e5bb8ed9-786b-4499-9fa6-d8acdfe41a0e_123.jpg 
+2022:12:21 22:17:49.316 INFO  --- [http-nio-9090-exec-7]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_4db4d267-c698-4b26-a4f2-8c71dc3b2c53_15.jpg 
+2022:12:21 22:17:49.324 INFO  --- [http-nio-9090-exec-8]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_461ae8bb-aa0f-43b1-acc5-2407c3b20a38_11.jpg 
+2022:12:21 22:17:49.328 INFO  --- [http-nio-9090-exec-6]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_bacc97e8-a067-4459-86ef-0e5dc9b19067_7.jpg 
+2022:12:21 22:17:49.339 INFO  --- [http-nio-9090-exec-10]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_454327f7-b21b-4420-a3ba-f08099cd3b96_00.jpg 
+2022:12:21 22:17:49.344 INFO  --- [http-nio-9090-exec-1]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_3da2896b-4984-41e8-8f6b-63f013ce0494_00.jpg 
+2022:12:21 22:17:49.356 INFO  --- [http-nio-9090-exec-4]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_e2299fbe-fd91-4030-becc-d6eb6e36bb91_00.jpg 
+2022:12:21 22:17:49.356 INFO  --- [http-nio-9090-exec-3]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_a157360f-b453-453a-b187-ba154fa07423_00.jpg 
+2022:12:21 22:17:49.358 INFO  --- [http-nio-9090-exec-5]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_f193b57b-1b20-4c5f-9b83-5d496cca9173_00.jpg 
+2022:12:21 22:17:49.360 INFO  --- [http-nio-9090-exec-9]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_90cacc2b-7c24-4805-9c87-ac3783f0220d_71936_58362_4032.jpg 
+2022:12:21 22:17:49.840 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:49.840 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:17:49.840 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:49.841 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:17:49.841 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:55.958 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|-------------------|--------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-----------------|-----------------|-----------------|---------|----|-------|-------|--------------------------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------|----------|---------| 
+2022:12:21 22:17:55.959 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |bno |boardType          |title                     |place   |content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |zoneCode |address          |latitude         |longitude        |username |uid |userId |imgCnt |fileName                                                                        |boardPassword |ip              |createdDate           |viewCnt |replyCnt |likeCnt |myLikeCnt |scrapCnt | 
+2022:12:21 22:17:55.960 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|-------------------|--------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-----------------|-----------------|-----------------|---------|----|-------|-------|--------------------------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------|----------|---------| 
+2022:12:21 22:17:55.961 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |133 |place_introduction |강남 직장인 회식장소 추천 맛집 베스트 30곳 |고메램 고깃집 |<figure class="user" style="font-family: " noto="" sans="" kr",="" "spoqa="" han="" sans",="" "nanum="" gothic",="" sans-serif;="" display:="" inline;="" font-style:="" normal;="" font-variant-ligatures:="" font-variant-caps:="" font-weight:="" 400;="" font-size:="" 0.688rem;="" line-height:="" 17px;="" color:="" rgb(51,="" 51,="" 51);="" -webkit-tap-highlight-color:="" transparent;="" word-break:="" keep-all;="" position:="" static;="" width:="" auto;="" text-align:="" center;"=""><figcaption class="" style="display: inline; font-weight: bold; font-size: 1rem; line-height: 18px; -webkit-tap-highlight-color: transparent; word-break: break-all; color: rgb(0, 0, 0);">아구구&nbsp;</figcaption></figure><p><br></p><p class="long_review " style="font-family: " noto="" sans="" kr",="" "spoqa="" han="" sans",="" "nanum="" gothic",="" sans-serif;="" margin-bottom:="" 0px;="" border-style:="" none;="" font-style:="" normal;="" font-variant-ligatures:="" font-variant-caps:="" font-weight:="" 400;="" font-size:="" 16px;="" color:="" rgb(51,="" 51,="" 51);="" -webkit-tap-highlight-color:="" transparent;="" word-break:="" keep-all;="" display:="" inline;"="">질좋은 양고기를 먹을 수 있는 곳! 양고기 종류도 많고 냄새없이 부드럽다. 특히 등심과 프렌치렉을 맛있게 먹었다. 구워주셔서 편하게 먹을수 있는것도 좋다. 사이드로 고추명란비빔밥이 있는데, 같이 주시는 김에 싸먹으면 엄청난 별미이다! 사이드로 시켜드시는걸 강추한다! 굿굿&nbsp;</p> |03168    |서울 강남구 삼성로96길 15 |37.5090904790547 |127.057075333082 |최고관리자    |1   |admin  |1      |/2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg |null          |0:0:0:0:0:0:0:1 |2022-11-30 16:41:47.0 |9       |0        |0       |0         |0        | 
+2022:12:21 22:17:55.962 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----|-------------------|--------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-----------------|-----------------|-----------------|---------|----|-------|-------|--------------------------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------|----------|---------| 
+2022:12:21 22:17:56.772 INFO  --- [http-nio-9090-exec-10]
+				v.r.controller.FileUploadController : File NAME : /2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg 
+2022:12:21 22:17:57.277 INFO  --- [http-nio-9090-exec-2]
+				v.r.controller.FileUploadController : File NAME : /2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg 
+2022:12:21 22:17:57.552 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.553 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |COUNT(bno) | 
+2022:12:21 22:17:57.553 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.552 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:57.554 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.553 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |18         | 
+2022:12:21 22:17:57.554 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:17:57.554 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |count(rno) | 
+2022:12:21 22:17:57.554 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:57.554 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.554 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.555 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:17:57.555 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |0          | 
+2022:12:21 22:17:57.555 INFO  --- [http-nio-9090-exec-8]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:17:57.555 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.555 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.572 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |count(bno) | 
+2022:12:21 22:17:57.572 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.573 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |0          | 
+2022:12:21 22:17:57.573 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:17:57.581 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:57.581 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |num |bno |title                                                      |boardType          |place      |username |uid |userId |zoneCode |imgCnt |fileName                                                                        |latitude         |longitude        |boardPassword |ip              |createdDate           |viewCnt |replyCnt |likeCnt | 
+2022:12:21 22:17:57.582 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:57.583 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |18  |133 |강남 직장인 회식장소 추천 맛집 베스트 30곳                                  |place_introduction |고메램 고깃집    |최고관리자    |1   |admin  |03168    |1      |/2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg |37.5090904790547 |127.057075333082 |null          |0:0:0:0:0:0:0:1 |2022-11-30 16:41:47.0 |9       |0        |0       | 
+2022:12:21 22:17:57.585 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |17  |102 |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322                  |place_introduction |합천 황매산철쭉제  |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg                 |37.8264202096643 |128.864967196147 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:12:01.0 |163     |11       |2       | 
+2022:12:21 22:17:57.586 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |16  |101 |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                                  |place_introduction |파주 심학산 돌곶이 |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                        |37.8264202096643 |128.864967196147 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:08:33.0 |89      |1        |1       | 
+2022:12:21 22:17:57.586 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |15  |100 |이토록 아름다운 영산강, 광주 명소 영산강 풍경                                 |place_introduction |영산강        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_089f638e-63a2-4fcd-958d-a49a9714f8ed_3.jpg                        |34.9755690073844 |126.622633272646 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:01:34.0 |39      |1        |0       | 
+2022:12:21 22:17:57.586 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |14  |99  |산책하기 좋은 도심 속 힐링 명소, 광주호호수생태원                               |place_introduction |임진각 평화누리공원 |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_e74b677a-89ed-4a61-afab-317500e94b2d_11.jpg                       |37.7863979207075 |126.786462333885 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:51:40.0 |30      |0        |0       | 
+2022:12:21 22:17:57.586 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |13  |98  |세계문화유산 불국사, 천 년의 향기 -경주 불국사 [유네스코 세계문화유산] - 주변 여행          |place_introduction |불국사        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_5aa484a8-71c4-4165-b2a2-793714198f4e_22.jpg                       |35.7783456826525 |129.299617502302 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:47:28.0 |86      |0        |0       | 
+2022:12:21 22:17:57.587 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |12  |97  |순천 가볼만한곳 낙안읍성 민속마을, 조선시대 모습을 그대로 간직한 곳                     |place_introduction |낙안읍성 민속마을  |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_e5bb8ed9-786b-4499-9fa6-d8acdfe41a0e_123.jpg                      |34.906401074793  |127.341822652758 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:42:46.0 |20      |0        |0       | 
+2022:12:21 22:17:57.587 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |11  |96  |[담양여행] 대나무 향기따라 떠나는 죽녹원, 대규모의 식물이 있는 크고 고요한 대나무 정원         |place_introduction |죽녹원        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_4db4d267-c698-4b26-a4f2-8c71dc3b2c53_15.jpg                       |35.1965226400352 |126.992047381312 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:40:18.0 |12      |0        |0       | 
+2022:12:21 22:17:57.587 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |10  |95  |100대명산 완등까지 한걸음 더 가까워져서 더 즐거웠던 지리산 천왕봉 등산이야기 바로 보여         |place_introduction |지리산 천왕봉    |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_461ae8bb-aa0f-43b1-acc5-2407c3b20a38_11.jpg                       |35.3091902847015 |127.431155794816 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:38:04.0 |11      |0        |0       | 
+2022:12:21 22:17:57.588 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |9   |94  |해인사&#40;海印寺&#41;는 대한민국 경상남도 합천군 가야면 치인리 가야산 중턱에 있는 사찰로서 양산 |place_introduction |해인사        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_bacc97e8-a067-4459-86ef-0e5dc9b19067_7.jpg                        |37.6927385576931 |126.882248144913 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:34:27.0 |36      |0        |0       | 
+2022:12:21 22:17:57.588 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |8   |93  |우도는 제주도의 동쪽 끝에 접하는 섬으로, 제주특별자치도에서 제주도 다음으로 큰 섬이다           |place_introduction |우도면        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_454327f7-b21b-4420-a3ba-f08099cd3b96_00.jpg                       |33.5194719510559 |126.951016739939 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:29:32.0 |17      |0        |0       | 
+2022:12:21 22:17:57.609 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |7   |92  |조선시대 누각을 볼 수 있는 아름다운 장소, 봉화 몽화각 [출처] 조선시대 누각을 볼 수          |place_introduction |봉화 몽화각     |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_3da2896b-4984-41e8-8f6b-63f013ce0494_00.jpg                       |36.6154799146883 |126.723597165875 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:26:48.0 |16      |0        |0       | 
+2022:12:21 22:17:57.609 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |6   |91  |4개의 늪&#40;우포늪, 목포늪, 사지포, 쪽지벌&#41;으로 구성된 자연배후습지국내 최대 규모의 자연 |place_introduction |우포늪        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_e2299fbe-fd91-4030-becc-d6eb6e36bb91_00.jpg                       |35.5424689392234 |128.418266105902 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:17:51.0 |11      |0        |0       | 
+2022:12:21 22:17:57.609 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |5   |90  |경화역은 경상남도 창원시 진해구 경화동에 위치하는 한국철도 진해선의 역이다.                 |place_introduction |경화역        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_a157360f-b453-453a-b187-ba154fa07423_00.jpg                       |35.1591082170829 |128.686924507334 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:14:04.0 |11      |1        |0       | 
+2022:12:21 22:17:57.610 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |4   |89  |광안대교 혹은 다이아몬드 브릿지는 부산광역시에 위치한 다리...                        |place_introduction |광안대교       |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_f193b57b-1b20-4c5f-9b83-5d496cca9173_00.jpg                       |35.6780823681493 |126.755972100079 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:11:01.0 |13      |0        |0       | 
+2022:12:21 22:17:57.610 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |3   |88  |남해의 가천 다랭이마을은 바다를 끼고 있지만 배 한척 없는 마을이다.                     |place_introduction |다랭이마을      |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_90cacc2b-7c24-4805-9c87-ac3783f0220d_71936_58362_4032.jpg         |34.7275201227888 |127.894034677694 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:09:22.0 |17      |0        |0       | 
+2022:12:21 22:17:57.611 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:57.632 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----|----|----|--------|--------------|---|------------|-------------|----|-------|---------|---------| 
+2022:12:21 22:17:57.632 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |num |rno |bno |content |replyPassword |ip |createdDate |modifiedDate |uid |userId |username |zoneCode | 
+2022:12:21 22:17:57.632 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----|----|----|--------|--------------|---|------------|-------------|----|-------|---------|---------| 
+2022:12:21 22:17:57.633 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----|----|----|--------|--------------|---|------------|-------------|----|-------|---------|---------| 
+2022:12:21 22:17:57.645 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:57.645 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |num |bno |title                                     |boardType          |username |uid |userId |zoneCode |imgCnt |fileName                                                        |boardPassword |ip              |createdDate           |viewCnt |replyCnt |likeCnt | 
+2022:12:21 22:17:57.646 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:57.646 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |17  |102 |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322 |place_introduction |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:12:01.0 |163     |11       |2       | 
+2022:12:21 22:17:57.646 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:17:59.122 INFO  --- [http-nio-9090-exec-3]
+				v.r.controller.FileUploadController : File NAME : /2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg 
+2022:12:21 22:17:59.126 INFO  --- [http-nio-9090-exec-6]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg 
+2022:12:21 22:17:59.154 INFO  --- [http-nio-9090-exec-1]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg 
+2022:12:21 22:17:59.172 INFO  --- [http-nio-9090-exec-2]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_089f638e-63a2-4fcd-958d-a49a9714f8ed_3.jpg 
+2022:12:21 22:17:59.174 INFO  --- [http-nio-9090-exec-8]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_e74b677a-89ed-4a61-afab-317500e94b2d_11.jpg 
+2022:12:21 22:17:59.208 INFO  --- [http-nio-9090-exec-9]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_5aa484a8-71c4-4165-b2a2-793714198f4e_22.jpg 
+2022:12:21 22:17:59.224 INFO  --- [http-nio-9090-exec-7]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_e5bb8ed9-786b-4499-9fa6-d8acdfe41a0e_123.jpg 
+2022:12:21 22:17:59.226 INFO  --- [http-nio-9090-exec-5]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_4db4d267-c698-4b26-a4f2-8c71dc3b2c53_15.jpg 
+2022:12:21 22:17:59.263 INFO  --- [http-nio-9090-exec-10]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_461ae8bb-aa0f-43b1-acc5-2407c3b20a38_11.jpg 
+2022:12:21 22:17:59.292 INFO  --- [http-nio-9090-exec-3]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_bacc97e8-a067-4459-86ef-0e5dc9b19067_7.jpg 
+2022:12:21 22:17:59.294 INFO  --- [http-nio-9090-exec-6]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_454327f7-b21b-4420-a3ba-f08099cd3b96_00.jpg 
+2022:12:21 22:17:59.326 INFO  --- [http-nio-9090-exec-1]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_3da2896b-4984-41e8-8f6b-63f013ce0494_00.jpg 
+2022:12:21 22:17:59.328 INFO  --- [http-nio-9090-exec-2]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_e2299fbe-fd91-4030-becc-d6eb6e36bb91_00.jpg 
+2022:12:21 22:17:59.358 INFO  --- [http-nio-9090-exec-8]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_a157360f-b453-453a-b187-ba154fa07423_00.jpg 
+2022:12:21 22:17:59.359 INFO  --- [http-nio-9090-exec-9]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_f193b57b-1b20-4c5f-9b83-5d496cca9173_00.jpg 
+2022:12:21 22:17:59.390 INFO  --- [http-nio-9090-exec-4]
+				v.r.controller.FileUploadController : File NAME : /2022/11/22/s_90cacc2b-7c24-4805-9c87-ac3783f0220d_71936_58362_4032.jpg 
+2022:12:21 22:18:07.969 INFO  --- [http-nio-9090-exec-3]
+				v.r.c.PlaceIntroductionController : 페이지 정보  :  PageMakerAndSearch(page=1, perPageNum=25, pageStart=0, totalCount=0, startPage=0, endPage=0, prev=false, next=false, displayPageNum=10, tempEndPage=0, searchType=null, keyword=null, calTotal=null, calEndPage=null, query=null, searchRange=null, parmaRole=null, boardType=null, bno=0, uid=0) 
+2022:12:21 22:18:08.006 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:18:08.007 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |COUNT(bno) | 
+2022:12:21 22:18:08.007 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:18:08.007 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |18         | 
+2022:12:21 22:18:08.007 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |-----------| 
+2022:12:21 22:18:08.022 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:18:08.022 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |num |bno |title                                                      |boardType          |place      |username |uid |userId |zoneCode |imgCnt |fileName                                                                        |latitude         |longitude        |boardPassword |ip              |createdDate           |viewCnt |replyCnt |likeCnt | 
+2022:12:21 22:18:08.023 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:18:08.023 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |18  |133 |강남 직장인 회식장소 추천 맛집 베스트 30곳                                  |place_introduction |고메램 고깃집    |최고관리자    |1   |admin  |03168    |1      |/2022/11/30/s_621ee784-319d-412b-aa75-b6e88550edd3_1019457_1649050946325850.jpg |37.5090904790547 |127.057075333082 |null          |0:0:0:0:0:0:0:1 |2022-11-30 16:41:47.0 |9       |0        |0       | 
+2022:12:21 22:18:08.023 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |17  |102 |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322                  |place_introduction |합천 황매산철쭉제  |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg                 |37.8264202096643 |128.864967196147 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:12:01.0 |163     |11       |2       | 
+2022:12:21 22:18:08.023 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |16  |101 |파주 심학산 돌곶이 6년 만에 꽃마을로 재탄생                                  |place_introduction |파주 심학산 돌곶이 |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_efbb1b22-6ae9-4833-8e27-feb362d7c89c_1.jpg                        |37.8264202096643 |128.864967196147 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:08:33.0 |89      |1        |1       | 
+2022:12:21 22:18:08.023 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |15  |100 |이토록 아름다운 영산강, 광주 명소 영산강 풍경                                 |place_introduction |영산강        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_089f638e-63a2-4fcd-958d-a49a9714f8ed_3.jpg                        |34.9755690073844 |126.622633272646 |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:01:34.0 |39      |1        |0       | 
+2022:12:21 22:18:08.023 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |14  |99  |산책하기 좋은 도심 속 힐링 명소, 광주호호수생태원                               |place_introduction |임진각 평화누리공원 |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_e74b677a-89ed-4a61-afab-317500e94b2d_11.jpg                       |37.7863979207075 |126.786462333885 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:51:40.0 |30      |0        |0       | 
+2022:12:21 22:18:08.024 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |13  |98  |세계문화유산 불국사, 천 년의 향기 -경주 불국사 [유네스코 세계문화유산] - 주변 여행          |place_introduction |불국사        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_5aa484a8-71c4-4165-b2a2-793714198f4e_22.jpg                       |35.7783456826525 |129.299617502302 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:47:28.0 |86      |0        |0       | 
+2022:12:21 22:18:08.024 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |12  |97  |순천 가볼만한곳 낙안읍성 민속마을, 조선시대 모습을 그대로 간직한 곳                     |place_introduction |낙안읍성 민속마을  |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_e5bb8ed9-786b-4499-9fa6-d8acdfe41a0e_123.jpg                      |34.906401074793  |127.341822652758 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:42:46.0 |20      |0        |0       | 
+2022:12:21 22:18:08.024 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |11  |96  |[담양여행] 대나무 향기따라 떠나는 죽녹원, 대규모의 식물이 있는 크고 고요한 대나무 정원         |place_introduction |죽녹원        |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_4db4d267-c698-4b26-a4f2-8c71dc3b2c53_15.jpg                       |35.1965226400352 |126.992047381312 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:40:18.0 |12      |0        |0       | 
+2022:12:21 22:18:08.025 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |10  |95  |100대명산 완등까지 한걸음 더 가까워져서 더 즐거웠던 지리산 천왕봉 등산이야기 바로 보여         |place_introduction |지리산 천왕봉    |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_461ae8bb-aa0f-43b1-acc5-2407c3b20a38_11.jpg                       |35.3091902847015 |127.431155794816 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:38:04.0 |11      |0        |0       | 
+2022:12:21 22:18:08.025 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |9   |94  |해인사&#40;海印寺&#41;는 대한민국 경상남도 합천군 가야면 치인리 가야산 중턱에 있는 사찰로서 양산 |place_introduction |해인사        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_bacc97e8-a067-4459-86ef-0e5dc9b19067_7.jpg                        |37.6927385576931 |126.882248144913 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:34:27.0 |36      |0        |0       | 
+2022:12:21 22:18:08.025 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |8   |93  |우도는 제주도의 동쪽 끝에 접하는 섬으로, 제주특별자치도에서 제주도 다음으로 큰 섬이다           |place_introduction |우도면        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_454327f7-b21b-4420-a3ba-f08099cd3b96_00.jpg                       |33.5194719510559 |126.951016739939 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:29:32.0 |17      |0        |0       | 
+2022:12:21 22:18:08.026 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |7   |92  |조선시대 누각을 볼 수 있는 아름다운 장소, 봉화 몽화각 [출처] 조선시대 누각을 볼 수          |place_introduction |봉화 몽화각     |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_3da2896b-4984-41e8-8f6b-63f013ce0494_00.jpg                       |36.6154799146883 |126.723597165875 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:26:48.0 |16      |0        |0       | 
+2022:12:21 22:18:08.029 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |6   |91  |4개의 늪&#40;우포늪, 목포늪, 사지포, 쪽지벌&#41;으로 구성된 자연배후습지국내 최대 규모의 자연 |place_introduction |우포늪        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_e2299fbe-fd91-4030-becc-d6eb6e36bb91_00.jpg                       |35.5424689392234 |128.418266105902 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:17:51.0 |11      |0        |0       | 
+2022:12:21 22:18:08.030 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |5   |90  |경화역은 경상남도 창원시 진해구 경화동에 위치하는 한국철도 진해선의 역이다.                 |place_introduction |경화역        |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_a157360f-b453-453a-b187-ba154fa07423_00.jpg                       |35.1591082170829 |128.686924507334 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:14:04.0 |11      |1        |0       | 
+2022:12:21 22:18:08.032 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |4   |89  |광안대교 혹은 다이아몬드 브릿지는 부산광역시에 위치한 다리...                        |place_introduction |광안대교       |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_f193b57b-1b20-4c5f-9b83-5d496cca9173_00.jpg                       |35.6780823681493 |126.755972100079 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:11:01.0 |13      |0        |0       | 
+2022:12:21 22:18:08.034 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |3   |88  |남해의 가천 다랭이마을은 바다를 끼고 있지만 배 한척 없는 마을이다.                     |place_introduction |다랭이마을      |유저2      |24  |user2  |61738    |1      |/2022/11/22/s_90cacc2b-7c24-4805-9c87-ac3783f0220d_71936_58362_4032.jpg         |34.7275201227888 |127.894034677694 |null          |0:0:0:0:0:0:0:1 |2022-11-21 22:09:22.0 |17      |0        |0       | 
+2022:12:21 22:18:08.034 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----|----|-----------------------------------------------------------|-------------------|-----------|---------|----|-------|---------|-------|--------------------------------------------------------------------------------|-----------------|-----------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:18:08.044 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:18:08.044 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |num |bno |title                                     |boardType          |username |uid |userId |zoneCode |imgCnt |fileName                                                        |boardPassword |ip              |createdDate           |viewCnt |replyCnt |likeCnt | 
+2022:12:21 22:18:08.044 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:18:08.045 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |17  |102 |합천 황매산철쭉제 방문 전 황매산 등산코스와 철쭉 개화시기 확인하세요322 |place_introduction |유저3      |25  |user3  |25436    |1      |/2022/11/22/s_765abedb-9218-46e5-9628-dfef631bee32_다운로드 (8).jpg |null          |0:0:0:0:0:0:0:1 |2022-11-21 23:12:01.0 |163     |11       |2       | 
+2022:12:21 22:18:08.045 INFO  --- [http-nio-9090-exec-3]
+				jdbc.resultsettable : |----|----|------------------------------------------|-------------------|---------|----|-------|---------|-------|----------------------------------------------------------------|--------------|----------------|----------------------|--------|---------|--------| 
+2022:12:21 22:18:09.493 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:18:09.494 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:18:09.494 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:18:09.494 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:18:09.494 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:18:43.228 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:18:43.228 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:18:43.228 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:18:43.229 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:18:43.229 INFO  --- [http-nio-9090-exec-5]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:19:13.240 INFO  --- [http-nio-9090-exec-6]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:19:13.240 INFO  --- [http-nio-9090-exec-6]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:19:13.240 INFO  --- [http-nio-9090-exec-6]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:19:13.240 INFO  --- [http-nio-9090-exec-6]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:19:13.241 INFO  --- [http-nio-9090-exec-6]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:19:43.224 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:19:43.224 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:19:43.224 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:19:43.224 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:19:43.224 INFO  --- [http-nio-9090-exec-4]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:20:13.230 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:20:13.230 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:20:13.230 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:20:13.230 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:20:13.231 INFO  --- [http-nio-9090-exec-7]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:20:42.866 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:20:42.866 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |cnt | 
+2022:12:21 22:20:42.867 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:20:42.868 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |0   | 
+2022:12:21 22:20:42.868 INFO  --- [http-nio-9090-exec-10]
+				jdbc.resultsettable : |----| 
+2022:12:21 22:20:46.800 INFO  --- [RMI TCP Connection(14)-127.0.0.1]
+				o.a.catalina.core.StandardService : Stopping service [Tomcat] 
+2022:12:21 22:20:46.806 INFO  --- [RMI TCP Connection(14)-127.0.0.1]
+				o.a.c.c.C.[Tomcat].[localhost].[/] : Destroying Spring FrameworkServlet 'dispatcherServlet' 
+2022:12:21 22:20:46.813 WARN  --- [RMI TCP Connection(14)-127.0.0.1]
+				o.a.c.c.C.[Tomcat].[localhost].[/] : Cannot serialize session attribute [SPRING_SECURITY_CONTEXT] for session [3318C0A37BE9658000560DB1748C8179] 
+java.io.NotSerializableException: view.road.model.vo.UserVO
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1185)
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553)
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510)
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433)
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179)
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553)
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510)
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433)
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:349)
+	at java.base/java.util.ArrayList.writeObject(ArrayList.java:896)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base/java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1130)
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1497)
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433)
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179)
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553)
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510)
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433)
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179)
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553)
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510)
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433)
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179)
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553)
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510)
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433)
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179)
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:349)
+	at org.apache.catalina.session.StandardSession.doWriteObject(StandardSession.java:1761)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1067)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:317)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:268)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:384)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5459)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1409)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1398)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:983)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1409)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1398)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:983)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.StandardService.stopInternal(StandardService.java:495)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.core.StandardServer.stopInternal(StandardServer.java:982)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257)
+	at org.apache.catalina.startup.Tomcat.stop(Tomcat.java:496)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stopTomcat(TomcatWebServer.java:273)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stop(TomcatWebServer.java:331)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.stop(WebServerStartStopLifecycle.java:52)
+	at org.springframework.context.SmartLifecycle.stop(SmartLifecycle.java:117)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStop(DefaultLifecycleProcessor.java:234)
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$300(DefaultLifecycleProcessor.java:54)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.stop(DefaultLifecycleProcessor.java:373)
+	at org.springframework.context.support.DefaultLifecycleProcessor.stopBeans(DefaultLifecycleProcessor.java:206)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onClose(DefaultLifecycleProcessor.java:129)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1067)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021)
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71)
+	at jdk.internal.reflect.GeneratedMethodAccessor30.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:260)
+	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193)
+	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175)
+	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117)
+	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54)
+	at java.management/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237)
+	at java.management/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138)
+	at java.management/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2022:12:21 22:20:46.879 INFO  --- [RMI TCP Connection(14)-127.0.0.1]
+				com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated... 
+2022:12:21 22:20:46.894 INFO  --- [RMI TCP Connection(14)-127.0.0.1]
+				com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed. 

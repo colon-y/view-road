@@ -70,7 +70,7 @@ public class PageMakerAndSearch {
 
 	// MyBatis SQL 의 Mapper 에서 인식해서 가져가는 파라미터 값 메소드 #{perPageNum}
 	public void setPerPageNum(int perPageNum) {
-		// 몇개 씩 보여줄것인가 이다. 최대 100개씩 보여 줄것으로 설정한다.
+		// 몇개씩 보여줄것인가 이다. 최대 100개씩 보여 줄것으로 설정한다.
 		// 만약 0보다 작거나 100 보다 크면 10으로 초기화 시킨다.
 		if (perPageNum <= 0 || perPageNum > 1000) {
 			this.perPageNum = 10;
