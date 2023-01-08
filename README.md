@@ -15,7 +15,7 @@
 			7.css
 			8.javascript
 			9.jquery
-			10.Bootstrap(UI 템틀릿 : v3.3.6,  v4.1.3(마이페이지, 관리자화면)  )
+			10.Bootstrap(UI 템플릿 : v3.3.6,  v4.1.3(마이페이지, 관리자화면)  )
 			
 라이브러리 :  
 			8.카카오맵 api
